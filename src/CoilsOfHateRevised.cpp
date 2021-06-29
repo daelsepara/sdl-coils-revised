@@ -2563,7 +2563,7 @@ bool saveGame(Character::Base &player, const char *overwrite)
 
     std::copy(wpath.begin(), wpath.end(), save.begin());
 
-    save += "/Saved Games/Coils of Hate";
+    save += "/Saved Games/Coils of Hate (Revised)";
 
     std::string path = save + "/";
 
@@ -2576,7 +2576,7 @@ bool saveGame(Character::Base &player, const char *overwrite)
         homedir = getpwuid(getuid())->pw_dir;
     }
 
-    std::string save = std::string(homedir) + "/Documents/Saved Games/Coils of Hate";
+    std::string save = std::string(homedir) + "/Documents/Saved Games/Coils of Hate (Revised)";
     std::string path = save + "/";
 
 #endif
@@ -2901,7 +2901,7 @@ Control::Type gameScreen(SDL_Window *window, SDL_Renderer *renderer, Character::
 
         std::copy(wpath.begin(), wpath.end(), save.begin());
 
-        save += "/Saved Games/Coils of Hate";
+        save += "/Saved Games/Coils of Hate (Revised)";
 
         std::string path = save + "/";
 #else
@@ -2912,7 +2912,7 @@ Control::Type gameScreen(SDL_Window *window, SDL_Renderer *renderer, Character::
             homedir = getpwuid(getuid())->pw_dir;
         }
 
-        std::string save = std::string(homedir) + "/Documents/Saved Games/Coils of Hate";
+        std::string save = std::string(homedir) + "/Documents/Saved Games/Coils of Hate (Revised)";
         std::string path = save + "/";
 #endif
 
