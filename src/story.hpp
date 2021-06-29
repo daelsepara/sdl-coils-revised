@@ -548,7 +548,7 @@ public:
 
         auto DAMAGE = -6;
 
-        if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
+        if (Character::HAS_SKILL(player, Skill::Type::SWORDPLAY))
         {
             DAMAGE = -4;
 
@@ -730,6 +730,292 @@ public:
     int Continue(Character::Base &player) { return 540; }
 };
 
+class Story010 : public Story::Base
+{
+public:
+    Story010()
+    {
+        ID = 10;
+
+        Text = "Sailing amid a froth of high flitting cloud, the moon casts a thin creamy light down to the narrow streets. You slide from shadow to shadow until you reach Mire Street, where you pause in the lee of a doorway to take stock of your target. No lamp shows in the windows. On the upper storey, one of the latticed windows overlooking the street has been left ajar. According to the etiquette of your chosen profession, this is tantamount to an effusive invitation. Detaching yourself from the darkness, you make a nimble ascent of the shop front and slither in through the open window. Tiptoeing lightly over a large slumbering guard dog lying across the landing, you quickly reconnoitre the house, discovering three of the Overlord's soldiers on watch in an upstairs room. Surveying them from behind a drape, you notice a small locked treasure-chest in an alcove at the back of the room. Without a doubt that is where the DIAMOND is kept.\n\nYou bite your lip, sizing up the situation. The three sentries are intent on a dice game, and the flickering lamplight in the room provides ample shadows for concealment, bit even so the job will not be easy. Amateur rogues often assume that speed is the important thing in a job like this. Long experience has taught you better. The key to success is to take your time. Luckily patience is your only virtue, so you have had plenty of opportunity to practise it over the years.\n\nCreeping low, pressed hard back into the dingy shadows by the wainscoting, you inch round the room. All the while the three guards go on with their game. Through your eyes remain firmly fixed on the treasure-box you listen to the hisses of breath and grunts and curses that indicate when someone has lost a throw, to the gulps of watered wine taking during respites in the game, to the rattle of ice and the slap of copper coins on the wooden tabletop. But still the guards remain oblivious to the rogue at their backs who is intent on whisking away a greater fortune in this one night that they will win or lose in their whole lives.\n\nYou reach the treasure chest at last and allow yourself a backward glance. One of the guards is now slumped dozily across the table. Another fingers the dice idly, tired of squandering his pay. The third grunts and begins to clean his fingernails with a dagger. \"How much longer are we on duty for?\" he asks.\n\n\"The next watch ought to be here in a few minutes to relieve us.\" replies the man with the dice. Now you know you must work fast. Hardly daring to breathe, you insert a bent pin into the lock and twist it with consummate precision. No surgeon ever operated so carefully upon a patient, no swain ever gave such loving entries to his paramour, no artist ever wielded a brush with such fine skill, as you work now upon that tiny lock.\n\nYour diligence is rewarded; the lock abandons its duties with a soft tut. The lid of the coffer yields to your eager touch, and you allow yourself a smile as you lift out the GEMSTONE you came for.";
+
+        Bye = "Placing in your mouth for safekeeping the sweetest lozenge you ever saw, you skulk back noiselessly across the room and descend the stairs to emerge moments later into the night air.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 384; }
+};
+
+class Story011 : public Story::Base
+{
+public:
+    Story011()
+    {
+        ID = 11;
+
+        Text = "\"Look, we're no trouble. We just stayed out late. We're just heading back to our houses. Why don't we forget this ever happened?\" You say, taking the money out of your purse. The guard's eyes light up \"I'm going to patrol the docks. You've got ten minutes.\" He says as he stuffs the coins into his pocket. He then walks off down the docks.";
+
+        Bye = "You run aboard the boat, grab as much food as you can and take it back to Ginath's house.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 270; }
+};
+
+class Story012 : public Story::Base
+{
+public:
+    Story012()
+    {
+        ID = 12;
+
+        Text = "The KNIFE is perfect for the job. You send it into the bloated gasbag of a body which is punctured. Black ichor sprays all over the room.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        {
+            return 158;
+        }
+        else
+        {
+            return 109;
+        }
+    }
+};
+
+class Story013 : public Story::Base
+{
+public:
+    Story013()
+    {
+        ID = 13;
+
+        Text = "The tentacles try to wrap themselves around your limbs, but almost as soon as they touch you, they withdraw quickly. However, they start to lash out at you, striking you in the face, arms and torso. The blob still advances upon you, eager to engulf you in its gelatinous purple flesh.\n\nYou LOSE 2 Life Points.";
+
+        Bye = "You flee the blob before you become another lost soul.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -2);
+    }
+
+    int Continue(Character::Base &player) { return 342; }
+};
+
+class Story014 : public Story::Base
+{
+public:
+    Story014()
+    {
+        ID = 14;
+
+        Text = "You slink through the alleyways, dodging shadows and waiting patiently when you hear people walk by. You don't know if these people are the Overlord's soldiers, thieves or Sycaari, but you figure that at this time at night that you don't want to meet anyone in the streets. Eventually, you get to the guard's house. Before you approach it, you stake it out. The house has been neglected the wood is rotting and the door is open ajar. You cannot see any lights. This seems easy. You make sure that the coast is clear before approaching the door.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::IVORY_POMEGRANATE}))
+        {
+            return 472;
+        }
+        else
+        {
+            return 235;
+        }
+    }
+};
+
+class Story015 : public Story::Base
+{
+public:
+    Story015()
+    {
+        ID = 15;
+
+        Text = "You scream in agony as the light seeps into your flesh. A moment later, you are horrified to feel something sprouting from your chest. Hate has awakened the evil in your own heart, forming a cancer that gnaws at you from within.\n\nYou LOSE 5 Life Points.";
+
+        Bye = "You join the charge on Hate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -5);
+    }
+
+    int Continue(Character::Base &player) { return 2; }
+};
+
+class Story016 : public Story::Base
+{
+public:
+    Story016()
+    {
+        ID = 16;
+
+        Text = "You decide to return to safety.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::LEVAD}))
+        {
+            return 192;
+        }
+        else
+        {
+            return 436;
+        }
+    }
+};
+
+class Story017 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story017()
+    {
+        ID = 17;
+
+        Bye = "Eventually, the remaining guards flee, leaving you and the remaining citizens to recover from your ordeal.\n\nTalmai approaches you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You charge at the guards and strike one before they know what is happening. He falls down without a sound. You charge at another one who spots you and is ready for you. This will be a tough battle, but if you fight hard enough, the guards will flee, looking for easier pickings.\n\n";
+
+        auto DAMAGE = -5;
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
+        {
+            DAMAGE = -2;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -3;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+        else if (Character::VERIFY_ITEMS_ANY(player, {Item::SWORD}))
+        {
+            DAMAGE = -4;
+
+            PreText += "[Item: SWORD] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Points.";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 425; }
+};
+
+class Story018 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story018()
+    {
+        ID = 18;
+
+        Bye = "Hate is continuing to thrash and you see that the magical chains are starting to fade. Something needs to be done now.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Your band battle on, but Hate, despite being wounded is not finished yet.\n\n";
+
+        auto DAMAGE = -7;
+
+        if (Character::HAS_SKILL(player, Skill::Type::SWORDPLAY))
+        {
+            DAMAGE = -5;
+
+            PreText += "[SWORDPLAY] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Points.";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 47;
+        }
+        else
+        {
+            return 554;
+        }
+    }
+};
+
+class Story019 : public Story::Base
+{
+public:
+    Story019()
+    {
+        ID = 19;
+
+        Text = "You return to the dank cellar with the maps. Ahab looks at them. \"You have done well. You know what, I could do with someone like you. However, you did flee the city. You need to prove your worth some more. Our resistance needs funding. A few days ago, a Judain jeweller's assistant came to see us. His employer had fired him for being Judain and the man was not able to flee the city. He approached Captain Tormil who demanded all of his possessions. I'll have that cur's head one day. Anyway, his employer on Mire Street has obtained a large DIAMOND, forcefully taken from a Judain owner he has been ordered by the Overlord to fashion it into a sceptre. If you can get the DIAMOND and fence it, we can get some money and strike a blow against the Overlord.\"";
+
+        Bye = "Ahab gives you the address of the shop.\n\nYou set off on your mission.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 292; }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -742,11 +1028,22 @@ auto story006 = Story006();
 auto story007 = Story007();
 auto story008 = Story008();
 auto story009 = Story009();
+auto story010 = Story010();
+auto story011 = Story011();
+auto story012 = Story012();
+auto story013 = Story013();
+auto story014 = Story014();
+auto story015 = Story015();
+auto story016 = Story016();
+auto story017 = Story017();
+auto story018 = Story018();
+auto story019 = Story019();
 
 void InitializeStories()
 {
     Stories = {
-        &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009};
+        &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
+        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019};
 }
 
 #endif
