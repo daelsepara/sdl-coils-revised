@@ -2245,8 +2245,8 @@ Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
 
                             if (Skill::ALL[selection[i]].Type == Skill::Type::WILDERNESS_LORE || Skill::ALL[selection[i]].Type == Skill::Type::SEAFARING)
                             {
-                                Character::CUSTOM.Life ++;
-                                Character::CUSTOM.MAX_LIFE_LIMIT ++;
+                                Character::CUSTOM.Life++;
+                                Character::CUSTOM.MAX_LIFE_LIMIT++;
                             }
                         }
 

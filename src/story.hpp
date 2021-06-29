@@ -1016,6 +1016,211 @@ public:
     int Continue(Character::Base &player) { return 292; }
 };
 
+class Story020 : public Story::Base
+{
+public:
+    Story020()
+    {
+        ID = 20;
+
+        Text = "It is a difficult leap but you just make it, launching yourself high in the air from a short run up. You land beside the girl and the bodies on the bed rock as the bedsprings bounce. The Overlord twitches again but does not awaken, while the girl lies inert, her back still towards you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Step over the girl to get to the Overlord", 53));
+        Choices.push_back(Choice::Base("Carry the concubine off for questioning", 44));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story021 : public Story::Base
+{
+public:
+    Story021()
+    {
+        ID = 21;
+
+        Text = "There is nothing for it but to rush through the gates. You wait and watch the guards, picking your moment when they lose concentration. One of them goes to the guardhouse and the others sit on the bench. Eventually, the fourth guard comes out carrying a pot of tea. The other guards take a cup and start sipping it. Now! You rush to the gate. The guards leap up, but it is too late to close the gate on you. You are through. As you run, you hear the twangs of crossbows as they fire at you. One of the bolts hits you just before you round a corner.\n\nYou LOSE 3 Life Points.";
+
+        Bye = "You keep running, however until you are secure in the knowledge that the guards aren't following you. You hastily staunch your wound.\n\nNow it is time to save your people.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -3);
+    }
+
+    int Continue(Character::Base &player) { return 232; }
+};
+
+class Story022 : public Story::Base
+{
+public:
+    Story022()
+    {
+        ID = 22;
+
+        Text = "Of course you trust lovely little Lucie. She takes your hand and leads you into a quiet courtyard that gives out onto the upper end of Fortuny Street. You walk through an arboretum of magnolia trees and hanging baskets of weeping lilies and find yourself surrounded by the Overlord's men with crossbows pointed at your chest. Lucie smiles a wicked little smile.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Use a WAND", 260, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("You have no choice but to surrender", 26));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story023 : public Story::Base
+{
+public:
+    Story023()
+    {
+        ID = 23;
+
+        Text = "You steal up behind one of the Jade Warriors and throw yourself against its word arm, wrenching the BLADE from its jade grasp.\n\n\"Obey me, Jade Warriors of the Megiddo Dynasty!\" you cry on impulse.\n\nTheir only response is to swivel towards you ad advance with swords aloft. There seems to be no escape from their deadly flashing BLADEs, and you cry out in agony as your stolen sword is dashed from your grip and you are cut to the bone.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "You flee the tomb chamber.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 83; }
+};
+
+class Story024 : public Story::Base
+{
+public:
+    Story024()
+    {
+        ID = 24;
+
+        Text = "You draw your WEAPON and hack at the tentacles. The creature withdraws, but a tentacle lashes out and knocks your WEAPON from your hand. The blob then lurches forward, putting any thought of retrieving the weapon out of your mind.";
+
+        Bye = "You flee the blob before you become another lost soul.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::SWORD});
+    }
+
+    int Continue(Character::Base &player) { return 342; }
+};
+
+class Story025 : public Story::Base
+{
+public:
+    Story025()
+    {
+        ID = 25;
+
+        Text = "The man is strong and fierce, but you can tell that he has never had any formal training with a sword. He raises his weapon to deliver a brutal swing, but you easily step backwards and avoid it. Before he can recover, you thrust forwards, wounding his arm and causing him to drop his sword with a yelp of pain. The other brigands cheer and jeer.";
+
+        Bye = "You have proved yourself.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 405; }
+};
+
+class Story026 : public Story::Base
+{
+public:
+    Story026()
+    {
+        ID = 26;
+
+        Text = "Lucie's green eyes sparkle with malice. \"This is the Judain who slew your captain. This guilty wretch deserves to die.\"\n\n\"And die the poor wretch will, undoubtedly, after interrogation.\" Lucie's smile of triumph is dripping with hatred. Something must have happened to her mind, else why would she lie and betray you? She is not the same girl you met standing in the rain near the Palazzo del Megiddo. She isn't behaving as she would with the riff-raff she usually disports herself with. Hate has got to her, just as it is taking over the minds of all the wretches of Godorno. None the less, you are fated to die in the prison fortress of Grond. By tomorrow your body will be hanging in an iron cage outside the Overlord's palace. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story027 : public Story::Base
+{
+public:
+    Story027()
+    {
+        ID = 27;
+
+        Text = "You throw the pomegranate with as much force as you can, but the creature turns its head at the last minute and it bounces harmlessly off its purple flesh. You won't be able to get it back now. \n\nWith the LOSS of the IVORY POMEGRANATE, you no longer reduce damage caused by Hate.\n\nYou have to think of another way to defeat Hate.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leap back into the fray with the JADE WARRIOR's SWORD", 125, {Item::JADE_WARRIORS_SWORD}));
+        Choices.push_back(Choice::Base("Use the JEWEL OF SUNSET FIRE", 218, {Item::JEWEL_OF_SUNSET_FIRE}));
+        Choices.push_back(Choice::Base("Flee", 476));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story028 : public Story::Base
+{
+public:
+    Story028()
+    {
+        ID = 28;
+
+        Text = "\"I don't need a knife to kill this scumbag. Remember when I killed that guard with one punch to the nose?\" You say to Ahab before you run across the square to Acennon.\n\nYou approach him and block his path. He looks at you in confusion.\n\n\"When you wake up, get what belongings you have left and leave the city. People want you dead and they are watching us now. This is going to hurt you, but it's not going to kill you. I'm sorry.\"\n\nYou then deliver a brutal blow to the face, enough to knock him out, but you know you didn't strike him hard enough or precisely enough to kill him.\n\nAs he crumples to the ground, you see Ahab run over to the shop to loot it. A minute later, he runs out, holding silver objects and a box.\n\n\"Good work. Let's get out of here.\"\n\nYou both run back to the cellar in Medallion Street where Ahab enthusiastically tells the others about your kill. You are given food, water and a share of the loot.\n\nYou OBTAINED 100 gleenars and the codeword SKANK.";
+
+        Bye = "You decide that it's time to leave the city.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_MONEY(player, 100);
+
+        Character::GET_CODEWORDS(player, {Codeword::Type::SKANK});
+    }
+
+    int Continue(Character::Base &player) { return 42; }
+};
+
+class Story029 : public Story::Base
+{
+public:
+    Story029()
+    {
+        ID = 29;
+
+        Text = "You arrive back at the jeweller's house later that night and stand surveying it in the moonlight. Your overwhelming impression is that this has all the hallmarks of a trap. The Overlord would hardly leave a priceless DIAMOND unguarded and he must be aware that his security measures, while enough to deter the casual thieves of the town, are simply an enticement to the pride of any true professional. So without a doubt there will be soldiers stationed in the house.\n\nClimbing up to the first floor, you prise open a window and tiptoe along the landing, listening at each door in turn. Sure enough, from behind one of the doors comes the rattle of gaming dice and the unmistakable banter of bored soldiers. You pause. This is where the DIAMOND must be kept. Continuing along the landing to the next door, you hear the sound of thundering snores. The jeweller's bedroom. Quietly inching the door open, you go to a cupboard and extract a nightshirt and cap, which you put on over your clothes. Then, darting swiftly along the landing, you fling open the first door and cry: \"Thief! There's a thief downstairs!\" The three soldiers leap up in amazement and grab their weapons, rushing past you along the landing with excited shouts. They are so intent on catching the thief and thereby earning a bonus that they don't even glance at your face.\n\nYou tear off the nightshirt and look around the room. A small locked chest catches your eye. Surely that is where the DIAMOND is. The lock looks pretty secure, but you can break it at your leisure once you are safely away from here. Only when you have put a safe distance between you and Mire Street do you pause to inspect the DIAMOND.";
+
+        Bye = "You leave at once with the chest.";
+        
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 384; }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -1038,12 +1243,23 @@ auto story016 = Story016();
 auto story017 = Story017();
 auto story018 = Story018();
 auto story019 = Story019();
+auto story020 = Story020();
+auto story021 = Story021();
+auto story022 = Story022();
+auto story023 = Story023();
+auto story024 = Story024();
+auto story025 = Story025();
+auto story026 = Story026();
+auto story027 = Story027();
+auto story028 = Story028();
+auto story029 = Story029();
 
 void InitializeStories()
 {
     Stories = {
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
-        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019};
+        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
+        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029};
 }
 
 #endif

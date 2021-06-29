@@ -61,7 +61,7 @@ namespace Skill
     auto THROWING = Skill::Base("THROWING", "The skill of hitting accurately with things you throw. You must possess a KNIFE to use this skill.", Skill::Type::THROWING, Item::Type::KNIFE);
     auto WILDERNESS_LORE = Skill::Base("WILDERNESS LORE", "A talent for survival in the wild -- whether forest, desert, swamp or mountain peak.", Skill::Type::WILDERNESS_LORE);
     auto UNARMED_COMBAT = Skill::Base("UNARMED COMBAT", "Fisticuffs, wrestling holds, jabs and kicks, and the tricks of infighting. Not as effective as SWORDPLAY, but you do not need weapons - your own body is the weapon!", Skill::Type::UNARMED_COMBAT);
-    
+
     std::vector<Skill::Base> ALL = {Skill::AGILITY, Skill::CHARMS, Skill::CUNNING, Skill::FOLKLORE, Skill::ROGUERY, Skill::SEAFARING, Skill::SPELLS, Skill::STREETWISE, Skill::SWORDPLAY, Skill::THROWING, Skill::WILDERNESS_LORE, Skill::UNARMED_COMBAT};
 
     int FIND(std::vector<Skill::Base> &skills, Skill::Type skill)
