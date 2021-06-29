@@ -1,4 +1,4 @@
-# Coils of Hate (Virtual Reality Adventure) - Work in Progress
+# Coils of Hate (Virtual Reality Adventure - Revised and Updated) - Work in Progress
 
 This is an implementation of the updated **The Coils of Hate** game book (Virtual Reality Adventures) by Mark Smith. The updated edition was done by [Stuard Lloyd](http://www.lloydofgamebooks.com/). The game is written in C/C++ and uses the [Simple DirectMedia Library (SDL)](https://www.libsdl.org/).
 
