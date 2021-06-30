@@ -546,7 +546,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        PreText = "Your band fight valiantly against Hate, slashing its purple flesh so that huge chunks fall off. To defend itself, tentacles grow out of Hate's body which lash at you with great force.\n\n";
+        PreText = "Your band fights valiantly against Hate, slashing its purple flesh so that huge chunks fall off. To defend itself, tentacles grow out of Hate's body which lash at you with great force.\n\n";
 
         auto DAMAGE = -6;
 
@@ -935,7 +935,7 @@ public:
 
         auto DAMAGE = -5;
 
-        if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
         {
             DAMAGE = -2;
 
@@ -1680,6 +1680,261 @@ public:
     }
 };
 
+class Story050 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story050()
+    {
+        ID = 50;
+
+        Bye = "You head towards Greenbark Plaza.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You greet the men's attack. Your SWORD will help, but you may not know how to use it.\n\n";
+
+        auto DAMAGE = -3;
+
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            DAMAGE = 0;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -1;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        if (DAMAGE < 0)
+        {
+            Character::GAIN_LIFE(player, DAMAGE);
+
+            PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Point(s).";
+        }
+        else
+        {
+            PreText += "You wield your SWORD well and you do not lose any Life Points.";
+        }
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nEventually, badly cut and beaten, the two men flee, the youth dropping his KNIFE.";
+        }
+
+        Take = {Item::KNIFE};
+
+        Limit = 1;
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 415; }
+};
+
+class Story051 : public Story::Base
+{
+public:
+    Story051()
+    {
+        ID = 51;
+
+        Text = "Astounded, you stagger back. You have destroyed Hate, a creature that would have destroyed your city. You sit down on the floor and rest. Then you hear a sound a murmuring from the catacombs: a sound that grows and swells from a hum to a roar. The lost souls are free once more and they climb into the streets to hail you as their saviour. You are a hero and you will be feted for a hundred days. Now is the time for the banquet at the Overlord's palace. Together you will rebuild Godorno and make it once more the jewel of the east. With your help, Judain and non-Judain will put aside all hostilities and learn to live and work together for the benefit of everyone. Eventually, you will rebuild the synagogue that you used to spend your youth and you will become a prominent and well respected citizen to both Judain and non-Judain. Caiaphas would have been proud of you.";
+
+        Type = Story::Type::GOOD;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story052 : public Story::Base
+{
+public:
+    Story052()
+    {
+        ID = 52;
+
+        Image = "images/filler1.png";
+
+        Text = "You run out of the shop and don't stop running until you are far away from it. What will you do now? Ahab is going to be angry about your failure and might suggest a severe punishment. Despite you two growing up together, he always seemed a bit distant and if he set his mind on a goal, he would try to accomplish it at all costs, not caring about what it did to those around him. You are sure that in his head, a failure is equal to a traitor. On the other hand, he is still the best one to provide you with shelter and protection. If you struck out on your own, you would have to survive in the ruins of houses, dodging both the militia and the Sycaari.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Return to Ahab", 220));
+        Choices.push_back(Choice::Base("Decide to go it alone", 173));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story053 : public Story::Base
+{
+public:
+    Story053()
+    {
+        ID = 53;
+
+        Text = "As you step over to the Overlord, you hear a faint whispering sound and a black shape settles heavily over you. Its skin sports rows of barbed spines that inject poison into your bloodstream. Try as you might, you can't break free. The poison turns your blood to cloying syrup and your heart stops beating. You have died when revenge for the Judain was almost within your grasp. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story054 : public Story::Base
+{
+public:
+    Story054()
+    {
+        ID = 54;
+
+        Text = "You leap between the Judain and the guards \"Have mercy on these poor dogs,\" you say \"Do not fall to the depths of their depravity. Is it not the fate they have reserved for you? Are we not nobler than they? Let us show them our superiority by sparing them, that their very existence may be a testament to our nobility.\"\n\nHowever, a large Judain carrying a poker and bearing all kinds of scars and wounds walks up to you and towers over you, his green eyes staring into yours. \"I suffered under these scumbags for weeks. Don't tell me to leave them alone, not until you have suffered as I have. Now get out of my way before I pummel you too.\"\n\nThe whole prison stares at you, watching what you do next.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Fight this large Judain to save the guards", 378));
+        Choices.push_back(Choice::Base("Step aside and let the Judain avenge themselves", 404));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story055 : public Story::Base
+{
+public:
+    Story055()
+    {
+        ID = 55;
+
+        Image = "images/filler1.png";
+
+        Text = "You sneak through the streets until you eventually come to the non-descript cottage that Yadid lives in. You approach the door to find it hanging off its hinges. Cautiously, you enter. The furniture is broken and strewn all over the place. There is no sign of your friend. It seems that someone, or something got to him first. You have a quick search of his house.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::ROGUERY))
+        {
+            return 207;
+        }
+        else
+        {
+            return 295;
+        }
+    }
+};
+
+class Story056 : public Story::Base
+{
+public:
+    Story056()
+    {
+        ID = 56;
+
+        Image = "images/diamond.png";
+
+        Text = "The SWORD leaves your hand like an arrow and buries itself into the bloated gasbag of a body, which is instantly ruptured. Black ichor sprays all over the room and the spider goes limp.\n\nThe JADE WARROR's SWORD is now out of reach.\n\nYou OBTAINED the JEWEL OF SUNSET FIRE.";
+
+        Bye = "You then leave through the door.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::JADE_WARRIORS_SWORD});
+
+        Character::GET_ITEMS(player, {Item::JEWEL_OF_SUNSET_FIRE});
+    }
+
+    int Continue(Character::Base &player) { return 223; }
+};
+
+class Story057 : public Story::Base
+{
+public:
+    Story057()
+    {
+        ID = 57;
+
+        Text = "As you approach the hut, the door is flung open to reveal an old woman dressed in a simple green tunic. She has a kindly expression on her face \"So lovely to see you. Do come in for some tea.\" You enter the hut to find it filled with plants of all kinds. The woman puts a kettle over a fireplace to make the tea. Soon, you are drinking a rich herbal liquid as you chat. It turns out that the old woman is a healer. She is very concerned to hear about the persecution of the Judain and offers her sympathy for your plight. Then her face lights up \"Could you help me, young one? There is a herb that grows a few miles towards the great forest. You would get it a lot faster than I could and I could make you a concoction to help you out.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Agree to help her", 513));
+        Choices.push_back(Choice::Base("Refuse and head towards the Great Forest", 501));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story058 : public Story::Base
+{
+public:
+    Story058()
+    {
+        ID = 58;
+
+        Image = "images/filler2.png";
+
+        Text = "The IVORY POMEGRANATE is one of the most holy artefacts in the Judain religion. Hate will find its touch poison. You decide that if you can get the POMEGRANATE inside Hate then it might destroy it. Hate roars at you. It is your perfect opportunity.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        {
+            return 81;
+        }
+        else
+        {
+            return 357;
+        }
+    }
+};
+
+class Story059 : public Story::Base
+{
+public:
+    Story059()
+    {
+        ID = 59;
+
+        Image = "images/filler1.png";
+
+        Text = "You have failed to obtain either the JEWEL OF SUNSET FIRE or a JADE WARRIOR's SWORD. You wrack your brains, trying to think of some other way to defeat Hate, but you have no other idea on what to do. All you can think to do is flee Godorno before it is destroyed.";
+
+        Bye = "You head for the gates.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 61; }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -1732,6 +1987,16 @@ auto story046 = Story046();
 auto story047 = Story047();
 auto story048 = Story048();
 auto story049 = Story049();
+auto story050 = Story050();
+auto story051 = Story051();
+auto story052 = Story052();
+auto story053 = Story053();
+auto story054 = Story054();
+auto story055 = Story055();
+auto story056 = Story056();
+auto story057 = Story057();
+auto story058 = Story058();
+auto story059 = Story059();
 
 void InitializeStories()
 {
@@ -1740,7 +2005,8 @@ void InitializeStories()
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
-        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049};
+        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
+        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059};
 }
 
 #endif
