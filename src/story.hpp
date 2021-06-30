@@ -492,7 +492,7 @@ public:
     {
         ID = 0;
 
-        Image = "images/vr-logo.png";
+        Image = "images/coils-of-hate-cover.png";
 
         Title = "The Coils of Hate: Prologue";
 
@@ -513,7 +513,7 @@ public:
     {
         ID = 1;
 
-        Image = "images/filler1.png";
+        Image = "images/vr-logo.png";
 
         Text = "Walk the streets you must, for there is no food and nothing to be gained from idling here in the hovel you call home. You push the rotten front door open gently. There is a wet cracking noise and it splinters, coming off its hinges. You jump past into Copper Street as it falls into the street and breaks. It is beyond repair. Even before you turn the corner of the narrow mired street, a prowling thief, a sewer rat escaped from the fleet, is going into your home. You let him. You are carrying everything you own. He will find nothing but tick-ridden blankets and a leaking earthenware pot or two.\n\nAs you turn your back on the grey stone shacks of Copper Street, a youth, gangling and pasty faced, spits in your eye and calls out \"Judain scum.\" His green eyes ooze malice. The boy is beneath notice. He sneers with his nose in the air, like the rich folk of the riverfront, but his sailcloth breeches are out at the knees. His father is probably a tanner or a tinker or some such.\n\nYour time in Godorno has taught you to ignore such insults. However, the youth is not content to leave it at insults. \n\nHe pulls a tanner's knife from his pocket. It is long, sharp and menacing. There is no time to cast a spell.";
 
