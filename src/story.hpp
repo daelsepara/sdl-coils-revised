@@ -796,7 +796,7 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        if (Character::HAS_SKILL(player, Skill::Type::THROWING))
         {
             return 158;
         }
@@ -1497,7 +1497,7 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        if (Character::HAS_SKILL(player, Skill::Type::THROWING))
         {
             return 8;
         }
@@ -1903,7 +1903,7 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        if (Character::HAS_SKILL(player, Skill::Type::THROWING))
         {
             return 81;
         }
@@ -2458,6 +2458,322 @@ public:
     }
 };
 
+class Story080 : public Story::Base
+{
+public:
+    Story080()
+    {
+        ID = 80;
+
+        Image = "images/filler3.png";
+
+        Text = "The warehouse door has a padlock on it, but it is easily smashed open. Inside you grab as many weapons as you can carry and head back to the building. You risk making another two runs before Talmai decides that you have enough weapons. You look at the pile of weapons in the middle of the floor there are many swords, axes, knives, bows, arrows, crossbows, bolts and maces. You will definitely be well equipped for the battle.\n\nYou gained the codeword ARMED.";
+
+        Bye = "You return to Bumble Row to get some sleep with what little time you have left.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::REMOVE_CODEWORD(player, Codeword::Type::MAZEL);
+
+        Character::GET_CODEWORDS(player, {Codeword::Type::ARMED});
+
+        Take = {Item::SWORD};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 178; }
+};
+
+class Story081 : public Story::Base
+{
+public:
+    Story081()
+    {
+        ID = 81;
+
+        Image = "images/filler2.png";
+
+        Text = "You hurl the POMEGRANATE with force and accuracy and it shoots straight into Hate's mouth and down its throat. The beast starts to shudder and a look of fear appears on its face.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::HECATOMB}))
+        {
+            return 410;
+        }
+        else
+        {
+            return 550;
+        }
+    }
+};
+
+class Story082 : public Story::Base
+{
+public:
+    Story082()
+    {
+        ID = 82;
+
+        Image = "images/filler1.png";
+
+        Text = "Caiaphas looks disappointed. \"You have your reasons. Good luck.\"\n\nYou decide to leave immediately.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Head to the main gate in order to leave by the trade route", 344));
+        Choices.push_back(Choice::Base("Stow away on a barge", 522));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story083 : public Story::Base
+{
+public:
+    Story083()
+    {
+        ID = 83;
+
+        Image = "images/filler1.png";
+
+        Text = "You flee out of the tomb and blunder through the tunnels and sewers until you find a ladder leading up to a manhole cover. You climb the ladder and emerge in a wide, empty street. You have escaped the Megiddo catacombs alive, but you have not obtained a weapon with which to combat Hate.\n\nYou gained the codeword THRUST.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::THRUST});
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::TOWER}))
+        {
+            return 59;
+        }
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::JEWEL}))
+        {
+            return 355;
+        }
+        else
+        {
+            return 170;
+        }
+    }
+};
+
+class Story084 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story084()
+    {
+        ID = 84;
+
+        Image = "images/filler2.png";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Visit Ahab", 420));
+        Choices.push_back(Choice::Base("Visit Ruth", 246));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The parts of your body that were touching the purple slime itch. You climb out of the cellar and run to a barrel of rainwater in the street. You submerge your arm in it, pull it out and inspect it.\n\nThe skin that the slime touched is red and irritated.\n\n";
+
+        if (Character::VERIFY_ITEMS(player, {Item::Type::IVORY_POMEGRANATE}))
+        {
+            PreText += "[Item: IVORY POMEGRANATE] You do not lose any Life Points.";
+        }
+        else
+        {
+            Character::GAIN_LIFE(player, -1);
+
+            PreText += "You do not LOSE 1 Life Point.";
+        }
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou think about what has befallen the city persecution, plague and now this slime. You decide that you cannot survive alone and decide to contact with some friends in the city. You could look for your friend Ahab, member of the Sycaari or you visit Ruth, Caiaphas's widow, in order to offer your condolences and any help that she might want. She is with Caiaphas's child and these times must be very hard for her.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story085 : public Story::Base
+{
+public:
+    Story085()
+    {
+        ID = 85;
+
+        Image = "images/filler2.png";
+
+        Text = "As the tentacles wrap around your wrists, you feel the POMEGRANATE vibrate in your pocket. Almost immediately, they loosen their grip and the worm stops it advance. Not wishing to push your luck, you flee the square. As you do, you hear a squelching noise behind you and then you feel something warm, viscous and foul-smelling splash onto your back. However, as it does, the POMEGRANATE vibrates again and you feel the slime evaporate.";
+
+        Bye = "You are glad to be alive.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 108; }
+};
+
+class Story086 : public Story::Base
+{
+public:
+    Story086()
+    {
+        ID = 86;
+
+        Text = "As you approach the corpse, you hear a loud grunt and squeal. A huge boar bursts out from copse and charges at you. You have disturbed it and it sees you as a threat.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        {
+            return 353;
+        }
+        else
+        {
+            return 139;
+        }
+    }
+};
+
+class Story087 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story087()
+    {
+        ID = 87;
+
+        Bye = "You flee for your life.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You have to flee. The nearest Jade Warrior slashes at you as you do, inflicting a deep cut with its extremely sharp SWORD.\n\nYou LOSE 6 Life Points.";
+
+        Character::GAIN_LIFE(player, -6);
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 83; }
+};
+
+class Story088 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story088()
+    {
+        ID = 88;
+
+        Bye = "You tell the innkeeper of the attack, who summons the watch to dispose of the body. You move to another room.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "It seems that you are not safe even out of Godorno. With the speed of someone who has grown up in such a dangerous city, you leap out of bed and hurl yourself at the man in a desperate fight for your life. He is taken aback by such ferocity, but raises his SWORD.\n\n";
+
+        auto DAMAGE = -4;
+
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            DAMAGE = -1;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -2;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Points.";
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou search the man, but he has nothing but his SWORD.";
+        }
+
+        Take = {Item::SWORD};
+
+        Limit = 1;
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 64; }
+};
+
+class Story089 : public Story::Base
+{
+public:
+    Story089()
+    {
+        ID = 89;
+
+        Image = "images/filler3.png";
+
+        Text = "When you get to Tarkamandir's shop, you find him standing outside with a cart laden with goods. He is locking the door.\n\n\"Shutting up for good?\" You ask.\n\nTarkamandir tells you that he has decided to quit the city. \"Matters have gone too far,\" he says \"each day I fear the guards will come and drag me off to Grond.\"\n\n\"Why should you fear?\" you say with a trace of bitterness \"You are not Judain.\"\n\nHe gives a snort of ironic laughter. \"Do you think that what has been going on has been a simple matter of persecution? It goes deeper than that. The Overlord started his attacks on your people to distract attention from his disastrous policies, reasoning that once the populace had a scapegoat to blame they would be easier to control.\"\n\n\"That strategy has worked well, then.\"\n\n\"Now it is out of control! Hate is rife in the city. It extends its influence like a cancer. Today it is you Judain who are marched off to the prison. Tomorrow it may be the aged, or the infirm, or those who dare to speak out against the Overlord. That is why I am leaving.\" He takes a few more steps, the wheels of his cart sloshing through the rut of mire in the middle of the street, then pauses to look back.\n\n\"As long as I am going, I suppose I ought to sell you some of my stock. Interested?\"\n\nTarkamandir has the following items: a MAGICAL SHIELD BRACELET which you may use once when you LOSE LIFE. If you use it, it can reduce the damage you take by up to 6. It then becomes useless. Other items on sale are: a JAR OF HEALING SALVE that can be used once to restore 1 Life Point, MAGIC WAND, a BLOCK OF FRAGRANT INCENSE used for religious and magical rituals, a SILVER MIRROR, MAGIC AMULET, SWORD, and a set of THROWING KNIVES.";
+
+        Bye = "You bid Tarkamandir farewell and tell him that you hope it will not be the last you see of him. Then you decide your next move.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Return to Ahab", 220));
+        Choices.push_back(Choice::Base("Turn your back on the Sycaari and decide to survive on your own", 173));
+
+        Controls = Story::Controls::SHOP;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Shop = {{Item::MAGICAL_SHIELD_BRACELET, 100}, {Item::HEALING_SALVE, 15}, {Item::MAGIC_WAND, 30}, {Item::CENSER_OF_FRAGRANT_INCENSE, 20}, {Item::SILVER_MIRROR, 20}, {Item::MAGIC_AMULET, 15}, {Item::SWORD, 15}, {Item::THROWING_KNIVES, 10}};
+    }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -2540,6 +2856,16 @@ auto story076 = Story076();
 auto story077 = Story077();
 auto story078 = Story078();
 auto story079 = Story079();
+auto story080 = Story080();
+auto story081 = Story081();
+auto story082 = Story082();
+auto story083 = Story083();
+auto story084 = Story084();
+auto story085 = Story085();
+auto story086 = Story086();
+auto story087 = Story087();
+auto story088 = Story088();
+auto story089 = Story089();
 
 void InitializeStories()
 {
@@ -2551,7 +2877,8 @@ void InitializeStories()
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
         &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
         &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
-        &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079};
+        &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
+        &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089};
 }
 
 #endif

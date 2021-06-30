@@ -21,14 +21,15 @@ namespace Item
         KNIFE,
         DIAMOND,
         CHAINS,
-        SHIELD,
+        MAGICAL_SHIELD_BRACELET,
         BOOK_OF_MYTHS_AND_LEGENDS,
         IVORY_POMEGRANATE,
         ROPE,
         GRAPPLE,
         FOOD,
+        SILVER_MIRROR,
         First = MAGIC_AMULET,
-        Last = FOOD
+        Last = SILVER_MIRROR
     };
 
     class Base
@@ -75,12 +76,13 @@ namespace Item
     auto KNIFE = Item::Base("KNIFE", "KNIFE", Item::Type::KNIFE);
     auto DIAMOND = Item::Base("DIAMOND", "DIAMOND", Item::Type::DIAMOND);
     auto CHAINS = Item::Base("CHAINS", "CHAINS", Item::Type::CHAINS);
-    auto SHIELD = Item::Base("SHIELD", "SHIELD", Item::Type::SHIELD, 6);
+    auto MAGICAL_SHIELD_BRACELET = Item::Base("MAGICAL SHIELD BRACELET", "MAGICAL SHIELD BRACELET", Item::Type::MAGICAL_SHIELD_BRACELET, 6);
     auto BOOK_OF_MYTHS_AND_LEGENDS = Item::Base("BOOK OF MYTHS AND LEGENDS", "BOOK OF MYTHS AND LEGENDS", Item::Type::BOOK_OF_MYTHS_AND_LEGENDS);
     auto IVORY_POMEGRANATE = Item::Base("IVORY POMEGRANATE", "IVORY POMEGRANATE", Item::Type::IVORY_POMEGRANATE, 1);
     auto ROPE = Item::Base("ROPE", "ROPE", Item::Type::ROPE);
     auto GRAPPLE = Item::Base("GRAPPLE", "GRAPPLE", Item::Type::GRAPPLE);
     auto FOOD = Item::Base("FOOD", "FOOD", Item::Type::FOOD);
+    auto SILVER_MIRROR = Item::Base("SILVER MIRROR", "SILVER MIRROR", Item::Type::SILVER_MIRROR);
 
     std::vector<Item::Type> UniqueItems = {};
 
