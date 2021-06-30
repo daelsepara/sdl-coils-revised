@@ -24,8 +24,10 @@ namespace Item
         SHIELD,
         BOOK_OF_MYTHS_AND_LEGENDS,
         IVORY_POMEGRANATE,
+        ROPE,
+        GRAPPLE,
         First = MAGIC_AMULET,
-        Last = IVORY_POMEGRANATE
+        Last = GRAPPLE
     };
 
     class Base
@@ -75,6 +77,8 @@ namespace Item
     auto SHIELD = Item::Base("SHIELD", "SHIELD", Item::Type::SHIELD, 6);
     auto BOOK_OF_MYTHS_AND_LEGENDS = Item::Base("BOOK OF MYTHS AND LEGENDS", "BOOK OF MYTHS AND LEGENDS", Item::Type::BOOK_OF_MYTHS_AND_LEGENDS);
     auto IVORY_POMEGRANATE = Item::Base("IVORY POMEGRANATE", "IVORY POMEGRANATE", Item::Type::IVORY_POMEGRANATE);
+    auto ROPE = Item::Base("ROPE", "ROPE", Item::Type::ROPE);
+    auto GRAPPLE = Item::Base("GRAPPLE", "GRAPPLE", Item::Type::GRAPPLE);
 
     std::vector<Item::Type> UniqueItems = {};
 

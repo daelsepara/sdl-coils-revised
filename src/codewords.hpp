@@ -17,7 +17,9 @@ namespace Codeword
         GORDIAN,
         CODEX,
         LEVAD,
-        SKANK
+        SKANK,
+        MAZEL,
+        LARCENY
     };
 
     std::map<Codeword::Type, const char *> Descriptions = {
@@ -30,7 +32,9 @@ namespace Codeword
         {Codeword::Type::GORDIAN, "Gordian"},
         {Codeword::Type::CODEX, "Codex"},
         {Codeword::Type::LEVAD, "Levad"},
-        {Codeword::Type::SKANK, "Skank"}};
+        {Codeword::Type::SKANK, "Skank"},
+        {Codeword::Type::MAZEL, "Mazel"},
+        {Codeword::Type::LARCENY, "Larceny"}};
 
     std::vector<Codeword::Type> Invisible = {};
 

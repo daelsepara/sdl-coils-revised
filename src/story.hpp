@@ -1935,6 +1935,237 @@ public:
     int Continue(Character::Base &player) { return 61; }
 };
 
+class Story060 : public Story::Base
+{
+public:
+    Story060()
+    {
+        ID = 60;
+
+        Image = "images/diamond.png";
+
+        Text = "Konstantin, is a very slippery character. He has a series of hideouts across the city almost impossible to find unless you know how to look for the discreet signs that he leaves around the place. The nearest one to you is a room that you can only access through the sewers. You approach the storm drain that you both used to access it. After checking that no one is around, you lift it up and then stop. There is something scratched into the wall, unnoticeable to anyone who doesn\"t understand its meaning, but it makes you stop dead. Two lines are scratched in the shape of a cross, indicating that the hideout has been compromised. Then the smell hits you. Instead of the smell of sewage, you smell camphor and honeysuckle. Then you realise what has happened. Hate has claimed the sewers for itself. You then head to another hideout. You eventually find Konstantin in the cellar of a fallen down hovel in the foreigner\"s quarter. He looks pleased to see you.\n\n\"It is good to see you my friend. You have caught me preparing to elope this city as there is too much danger here now. Even if I weren't Judain, I would fear that my days are numbered.\"\n\n\"It's Hate, isn't it?\"\n\n\"If that's what you call the huge purple creatures that are assaulting our homes and our people, then yes. Those purple blobs are infesting every corner of Godorno. Even the sewers aren't safe any more. If I were you, I would leave as quickly as you can.\"\n\n\"I can't. I have to save my people.\"\n\n\"I thought you would say that. Caiaphas chose his pupils well, didn't he? Well, at least let me help you.\" Konstantin pulls out a large DIAMOND, the size of a walnut from his pocket and hands it to you \n\n\"This should set you up nicely for when you do escape the city. Sell it and live comfortably for many years.\" You open your mouth to protest, but Konstantin raises his hand to stop you \"This is a mere trinket compared to what I've managed to amass over the years. I won't even notice it's gone.\"\n\nKonstantin also offers you a ROPE and GRAPPLE which you may take.";
+
+        Bye = "Konstantin leaves the cellar in preparation to quit the city. You decide to head back to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::DIAMOND});
+
+        Take = {Item::ROPE, Item::GRAPPLE};
+
+        Limit = 2;
+    }
+
+    int Continue(Character::Base &player) { return 339; }
+};
+
+class Story061 : public Story::Base
+{
+public:
+    Story061()
+    {
+        ID = 61;
+
+        Image = "images/filler1.png";
+
+        Text = "The city and all of its inhabitants are a lost cause. If they don't join the orgy of despair in Hate, they will be corpses soon. If everyone is so determined to spend their last days slaughtering each other for pointless causes, then so be it. You will start a new life elsewhere.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::MAZEL}))
+        {
+            return 311;
+        }
+        else
+        {
+            return 113;
+        }
+    }
+};
+
+class Story062 : public Story::Base
+{
+public:
+    Story062()
+    {
+        ID = 62;
+
+        Image = "images/silver-eel-tavern.png";
+
+        Text = "\"Look, I just want to have a little chat with Melmelo. He won't even know it was you who told me.\" You say as you put the coins on the table.\n\n\"Fine, you go and talk to him then. He lives in a villa in the Foreignersø Quarter. It has an ornamental steam bath in the garden.\"\n\nYou gained the codeword LARCENY.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Order a drink from a bar", 306));
+        Choices.push_back(Choice::Base("Join Lucie and the stranger", 132));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::LARCENY});
+    }
+};
+
+class Story063 : public Story::Base
+{
+public:
+    Story063()
+    {
+        ID = 63;
+
+        Image = "images/filler1.png";
+
+        Text = "Though your instinct is to trust Lucie who seems open and without guile, you know it makes no sense to agree to a meeting with a stranger, particularly in a city like Godorno where your people are the victims of genocide. You demand to be told who it is who can help you in your struggle to save your people.\n\n\"He made me promise to keep his identity secret, until you meet. He said he could help you only if you are able to trust. So many good people have fallen into the clutches of the coils of Hate. Trust me.\"\n\n\"Is he Judain?\"\n\n\"No, not Judain. Come we are almost there.\"\n\n\"No, I will not place myself in danger. I would be a fool to do so.\"\n\n\"Don't you trust me?\" Lucie looks shocked and hurt. \"I've been doing my best to help you and now you won't trust me.\"\n\n\"Lucie...\" You reach out and touch her, but she spits at you and runs off.";
+
+        Bye = "Bewildered at her strange behaviour, you return to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 351; }
+};
+
+class Story064 : public Story::Base
+{
+public:
+    Story064()
+    {
+        ID = 64;
+
+        Image = "images/filler1.png";
+
+        Text = "Now that you know that the Overlord's reach extends beyond Godorno, you have a restless night. Your mind races with possibilities, plans and questions. Should you stay here and hope the situation dies down? Should you head further north, or hide out in the Great Forest? Should you return to Godorno to help your people?\n\nEventually, the sun shines in through your bedroom window and you get up and prepare for the day. You have a breakfast of eggs and bread and then leave the inn.\n\nYour first port of call is a very interesting shop that stocks all kinds of useful goods. You enter it and begin to search through the myriad items to see if there is anything that you might find useful.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        {
+            return 248;
+        }
+        else
+        {
+            return 301;
+        }
+    }
+};
+
+class Story065 : public Story::Base
+{
+public:
+    Story065()
+    {
+        ID = 65;
+
+        Image = "images/filler1.png";
+
+        Text = "The only way you know of contacting Melmelo is by asking a thief. The only place you can be sure to find a thief when you want one is The Inner Temple, an inn in the middle of the oldest part of the city. The Oldest part of the city is an ever nighted labyrinth crawling with cutthroats and footpads. You decide to err on the side of caution and smuggle yourself in. You head to the mews of Slave Market Plaza and find an unattended slaver's cart. You get under it and cling to the axles of the cart and wait for it to move. The cart eventually starts to move along the cobbles. You have a bumpy ride for an hour until you let yourself fall, unnoticed to the cobbles as it turns a corner. Next you pick your way through a maze of old alleyways, built soon after this part of the city was razed to the ground in the Great Fire of a few years ago.";
+
+        Bye = "You are soon looking at the doors of the Inn of the Inner Temple.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 303; }
+};
+
+class Story066 : public Story::Base
+{
+public:
+    Story066()
+    {
+        ID = 66;
+
+        Text = "The guard's face is as purple as Hate as he exerts a great effort and you are dragged into the translucent flesh of the monster. You have joined the orgy of despair and the poor guard who dragged you in cannot escape. He is exhausted. You must lie together, like eggs in a basket, as Hate goes on devouring lost souls. There is no one left to save the Judain now. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story067 : public Story::Base
+{
+public:
+    Story067()
+    {
+        ID = 67;
+
+        Image = "images/filler1.png";
+
+        Text = "Without thinking, you run across the bar room, leap over the bar and dash out of the back door. You emerge into a narrow alley way, where you cast a spell of invisibility on yourself, thankful to the sorcerer who created it for making the casting time as short and as simple as possible. You then flee the area. As you do, you hear the angry shouts of the Overlord's men as they storm out into the alleyway and run off in different directions. However, you make sure that you are standing out of their way as they run past you. With the danger passed, you breathe a sigh of relief. Godorno is far too dangerous for you to stay here. You're going to have to leave.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave via the main gate to the trade route", 344));
+        Choices.push_back(Choice::Base("Stow away on a barge", 522));
+        Choices.push_back(Choice::Base("Risk visiting one of your friends before you leave", 467));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story068 : public Story::Base
+{
+public:
+    Story068()
+    {
+        ID = 68;
+
+        Text = "You carry on up the road until you come to a fork.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Head north to Bagoe", 496));
+        Choices.push_back(Choice::Base("Head west to Burg and the Great Forest", 358));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story069 : public Story::Base
+{
+public:
+    Story069()
+    {
+        ID = 69;
+
+        Text = "You PAID 100 gleenars.\n\nAhab explodes at this paltry sum.\n\n\"A fool could get a better price for such a gem! I know what you've been up to, you thief. Well, I'll teach you to steal from the Sycaari!\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [CUNNING] to get out of this situation", 133, Skill::Type::CUNNING));
+        Choices.push_back(Choice::Base("Use [STREETWISE]", 133, Skill::Type::STREETWISE));
+        Choices.push_back(Choice::Base("You do not have those skills or you do not wish to use them", 191));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_MONEY(player, -100);
+    }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -1997,6 +2228,16 @@ auto story056 = Story056();
 auto story057 = Story057();
 auto story058 = Story058();
 auto story059 = Story059();
+auto story060 = Story060();
+auto story061 = Story061();
+auto story062 = Story062();
+auto story063 = Story063();
+auto story064 = Story064();
+auto story065 = Story065();
+auto story066 = Story066();
+auto story067 = Story067();
+auto story068 = Story068();
+auto story069 = Story069();
 
 void InitializeStories()
 {
@@ -2006,7 +2247,8 @@ void InitializeStories()
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
-        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059};
+        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
+        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069};
 }
 
 #endif
