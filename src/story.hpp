@@ -1165,7 +1165,7 @@ public:
     {
         ID = 27;
 
-        Text = "You throw the pomegranate with as much force as you can, but the creature turns its head at the last minute and it bounces harmlessly off its purple flesh. You won't be able to get it back now. \n\nWith the LOSS of the IVORY POMEGRANATE, you no longer reduce damage caused by Hate.\n\nYou have to think of another way to defeat Hate.";
+        Text = "You throw the POMEGRANATE with as much force as you can, but the creature turns its head at the last minute and it bounces harmlessly off its purple flesh. You won't be able to get it back now. \n\nWith the LOSS of the IVORY POMEGRANATE, you no longer reduce damage caused by Hate.\n\nYou have to think of another way to defeat Hate.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Leap back into the fray with the JADE WARRIOR's SWORD", 125, {Item::JADE_WARRIORS_SWORD}));
@@ -1173,6 +1173,11 @@ public:
         Choices.push_back(Choice::Base("Flee", 476));
 
         Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::IVORY_POMEGRANATE});
     }
 };
 
@@ -1212,13 +1217,232 @@ public:
         Text = "You arrive back at the jeweller's house later that night and stand surveying it in the moonlight. Your overwhelming impression is that this has all the hallmarks of a trap. The Overlord would hardly leave a priceless DIAMOND unguarded and he must be aware that his security measures, while enough to deter the casual thieves of the town, are simply an enticement to the pride of any true professional. So without a doubt there will be soldiers stationed in the house.\n\nClimbing up to the first floor, you prise open a window and tiptoe along the landing, listening at each door in turn. Sure enough, from behind one of the doors comes the rattle of gaming dice and the unmistakable banter of bored soldiers. You pause. This is where the DIAMOND must be kept. Continuing along the landing to the next door, you hear the sound of thundering snores. The jeweller's bedroom. Quietly inching the door open, you go to a cupboard and extract a nightshirt and cap, which you put on over your clothes. Then, darting swiftly along the landing, you fling open the first door and cry: \"Thief! There's a thief downstairs!\" The three soldiers leap up in amazement and grab their weapons, rushing past you along the landing with excited shouts. They are so intent on catching the thief and thereby earning a bonus that they don't even glance at your face.\n\nYou tear off the nightshirt and look around the room. A small locked chest catches your eye. Surely that is where the DIAMOND is. The lock looks pretty secure, but you can break it at your leisure once you are safely away from here. Only when you have put a safe distance between you and Mire Street do you pause to inspect the DIAMOND.";
 
         Bye = "You leave at once with the chest.";
-        
+
         Choices.clear();
 
         Controls = Story::Controls::STANDARD;
     }
 
     int Continue(Character::Base &player) { return 384; }
+};
+
+class Story030 : public Story::Base
+{
+public:
+    Story030()
+    {
+        ID = 30;
+
+        Text = "You cast a simple spell of Befuddlement on the guard who leaves his post and wanders off down the street. With the guard dealt with, you head back to the boat.";
+
+        Bye = "You finish your delivery.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 270; }
+};
+
+class Story031 : public Story::Base
+{
+public:
+    Story031()
+    {
+        ID = 31;
+
+        Text = "Your steady run keeps you out of their clutches but they are on horses which will not tire so easily.  They do not seem like giving up. You run on desperately, hoping to find somewhere to evade them.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Change your mind about fleeing and offer to throw your lot in with them", 123));
+        Choices.push_back(Choice::Base("Keep running", 338));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story032 : public Story::Base
+{
+public:
+    Story032()
+    {
+        ID = 32;
+
+        Text = "The spell of Visceral Pang should suffice to bring the landlord to his knees and force him to do your bidding. You mouth the arcane words and twirl your fingers in the patterns that bring magic to life. The spell catches and the landlord's face grows pale, then very flushed. He makes a rush for the latrines but the pain pulls him up short and he doubles over in agony.\n\n\"You will serve a Judain, my good man, and be quick about it,\" you say, looking around to gauge the reaction of the other drinkers.\n\nThe two women are looking at you in a new light. The pipe smoker is tapping out his pipe. Lucie looks shocked. The eyes of the tall stranger transfix you with a piercing stare. The gang of four are all fingering hidden weapons and checking their escape routes.\n\n\"A pot of your finest ale, barkeep,\" you say, letting the spell go. The landlord straightens up slowly, holding his stomach and reaches for an ale pot.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask the landlord about business", 466));
+        Choices.push_back(Choice::Base("Ask the landlord about Lucie and the stranger", 267));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story033 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story033()
+    {
+        ID = 33;
+
+        Bye = "The woman turns to you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "\"I can find a place for them.\" she whispers, nodding in the direction of the lepers \"Follow me.\" You follow her and the lepers shuffle after you. Eventually, she comes to a warehouse that has had its doors kicked in. You go inside to find a dozen people sitting on crates, discussing the state of the city. You notice people from all strata of society. There is a Judain jeweller, a labourer, a scholar and even a member of the Overlord's guard sharing the same room in peace. They look alarmed to see you, but relax once the woman talks to them.\n\n\"This one was leading some lepers to safety. Since we have more food here than we know what to do with, I'm sure no one minds them sheltering here.\" There is a murmur of agreement from the group. As the lepers file in, the woman directs them to a crate of ship's biscuits which the grateful lepers fall upon with fervour.";
+
+        if (!Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+            PreText += "\n\nYou gained the codeword SATORI.";
+        }
+        else
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 279; }
+};
+
+class Story034 : public Story::Base
+{
+public:
+    Story034()
+    {
+        ID = 34;
+
+        Text = "You also know that there are certain streets that Judain should never go and not just because of the Overlord's men. You come to a street where you can hear drunken singing and shouting and decide to take a detour as you realise that the revellers here would turn violent at the sight of a Judain.";
+
+        Bye = "Eventually, you make it to the ruins of the Synagogue.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 175; }
+};
+
+class Story035 : public Story::Base
+{
+public:
+    Story035()
+    {
+        ID = 35;
+
+        Text = "Your own opinion is that the myth of the return of Harakadnezzar is only a story invented to deter would-be grave robbers from rifling in the more recently consecrated tombs. The story of Hate, however, is well known to all folklorists. Hate rises up in the foundations of ancient and decadent cities, swallowing the proud, wicked and greedy into its ravening maw. This manifestation of the force of Hate was last heard of in the Old Empire city of Kush, a thousand years ago. There is nothing left of Kush now. The greatest and most powerful city the world has ever seen has become a giant dustbowl in the grasslands.";
+
+        Bye = "You thank the landlord and leave him to join Lucie and the stranger.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 132; }
+};
+
+class Story036 : public Story::Base
+{
+public:
+    Story036()
+    {
+        ID = 36;
+
+        Text = "You fling your KNIFE at the nearest guard. It strikes him in the shoulder. He yells in pain and drops his SWORD. One of the other guards spots you. \"Judain scum! Come here and take your punishment!\" You dash off down the street with the guards in pursuit. They cannot keep up with you in their heavy armour and you soon lose them.";
+
+        Bye = "Doubling back, you meet up with Ruth and escort her back to her house.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::KNIFE});
+    }
+
+    int Continue(Character::Base &player) { return 411; }
+};
+
+class Story037 : public Story::Base
+{
+public:
+    Story037()
+    {
+        ID = 37;
+
+        Text = "Your mighty struggles are in vain. You are not ready for this untimely death.\n\nMemories of the times you have felt Hate smoulder in your breast come unbidden in your mind and the strength seems to drain out of your muscles. The warm embrace of Hate welcomes you and your body is slowly and inexorably drawn inch by inch into the seething mass of the monster. Soon your head too is being drawn in. Your arms and legs have gone numb and you start to fight for breath as your nostrils and lips are sealed over by the soft purple flesh of Hate. You drown in the body of Hate. Your tormented half-life has begun.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story038 : public Story::Base
+{
+public:
+    Story038()
+    {
+        ID = 38;
+
+        Text = "You walk out into the street \"Down with the Overlord!\" You shout as you wave your arms and make hand gestures at the guards. They immediately stop tormenting the Judain and stare at you, their eyes brimming with hatred. Then they run at you. You are going to have to be quick to outrun them.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 264;
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            return 298;
+        }
+        else
+        {
+            return 442;
+        }
+    }
+};
+
+class Story039 : public Story::Base
+{
+public:
+    Story039()
+    {
+        ID = 39;
+
+        Text = "The Overlord's men aren't expecting you, so no one notices when your first KNIFE embeds itself into the back of one of the guards. He collapses to the ground with a scream. The guards turn around to face you. Some run at you, but Talmai picks up one of the dead guards' SWORDs and rushes at her opponents, striking one in the back. Attacked on both sides, the remaining guards flee the scene rather than fight.";
+
+        Bye = "Talmai approaches you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 425; }
 };
 
 auto customShop = CustomShop();
@@ -1253,13 +1477,24 @@ auto story026 = Story026();
 auto story027 = Story027();
 auto story028 = Story028();
 auto story029 = Story029();
+auto story030 = Story030();
+auto story031 = Story031();
+auto story032 = Story032();
+auto story033 = Story033();
+auto story034 = Story034();
+auto story035 = Story035();
+auto story036 = Story036();
+auto story037 = Story037();
+auto story038 = Story038();
+auto story039 = Story039();
 
 void InitializeStories()
 {
     Stories = {
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
-        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029};
+        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
+        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039};
 }
 
 #endif
