@@ -2770,8 +2770,231 @@ public:
 
     void Event(Character::Base &player)
     {
+        // Implement MAGICAL SHIELD BRACELET
         Shop = {{Item::MAGICAL_SHIELD_BRACELET, 100}, {Item::HEALING_SALVE, 15}, {Item::MAGIC_WAND, 30}, {Item::CENSER_OF_FRAGRANT_INCENSE, 20}, {Item::SILVER_MIRROR, 20}, {Item::MAGIC_AMULET, 15}, {Item::SWORD, 15}, {Item::THROWING_KNIVES, 10}};
     }
+};
+
+class Story090 : public Story::Base
+{
+public:
+    Story090()
+    {
+        ID = 90;
+
+        Image = "images/lucie.png";
+
+        Text = "You find Lucie loitering around the moored gondolas on Circle Canal. In better days she might have had rich pickings from dipping her hand into the purses of the wealthy. In these troubled times, few people dare venture into the streets with money in their pockets.\n\nYou explain that you want to get into Grond and free the prisoners there.\n\n\"Help free those vermin?\" she says \"Why would I want to? Many are murderers, rapists and madmen!\"\n\n\"Many are brave men and women whose only crime was to speak out against the Overlord. Others are even more blameless. My fellow Judain, for instance, declared criminal simply because of race and creed.\"\n\nLucie seems not even to have heard you. \"Those beasts in Grond they are animals! Let Hate take them!\" She looks at you as though you have lost your wits, her pretty face contorted with hatred. The glint in her green eyes is frightening. She looks mad.\n\nYou tell her off for her outburst. Lucie smirks coquettishly as you tell her off and says \"Well, it's true. Hate take them all and good riddance to bad rubbish.\"\n\nYou sigh, knowing you will never change her. You suspect that at least one of the criminal inmates of Grond must have done something dreadful to her before his imprisonment.\n\n\"Surely there must be something you can do?\" You ask \"Don't you know any of the guards?\"\n\n\"I suppose I do, one or two. There's Captain Khmer in the east tower. He oversees the towngate and the eastern courtyard. I could smuggle you in there.\"\n\nYou agree to this plan and follow Lucie to Grond. While she goes in search of Captain Khmer, you wait in the bakery adjacent to the prison. It is a long wait, but at least there is fresh bread to eat and the bakers and scullions will not give you away. They seem to be firm friends with Lucie. You have plenty of time to wonder how she binds people to her. These peasants are taking a terrible risk sheltering you under their roof.\n\nAt last Lucie comes back. She looks troubled but says \"I've arranged things for you. Walk up to the towngate in five minutes\" time. They will open up and let you through. They won't harm you, but from then on you are on your own. I think something has gone terribly wrong in there. It wasn't easy to arrange. Don't waste my efforts in failure, Judain. I'm going to the Silver Eel. Come to me there and tell me how you fared.\" With that and a little squeeze of the shoulder, she is gone.";
+
+        Bye = "You approach the towngate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 153; }
+};
+
+class Story091 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story091()
+    {
+        ID = 91;
+
+        Bye = "You join the charge on Hate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "As you are bathed in the green light, you feel extremely hot and feel something crawl about inside you. The experience is painful, but it only lasts a moment before dying down. Hate has tried to find corruption in your heart and awaken it, but there is nothing there to find. However, you are still in pain.\n\nYou LOSE 1 Life Point.";
+
+        Character::GAIN_LIFE(player, -1);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYour acts of goodness will provide some protection against Hate. In your combat with Hate, whenever you are told to lose Life Points, that number is reduced by 1 and you lose that number of Life Points instead.";
+
+            // TODO: Implement this DAMAGE reduction
+            Character::GET_CODEWORDS(player, {Codeword::Type::GOODNESS});
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 2; }
+};
+
+class Story092 : public Story::Base
+{
+public:
+    Story092()
+    {
+        ID = 92;
+
+        Image = "images/filler2.png";
+
+        Text = "Your knowledge of fighting has taught you how to slip out of holds.\n\nYou manage to work your way out of the tentacles and flee before they can ensnare you again.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 408; }
+};
+
+class Story093 : public Story::Base
+{
+public:
+    Story093()
+    {
+        ID = 93;
+
+        Text = "The cloud of dust is coming closer and when it is no more than a quarter of a mile away you begin to make out the figures of several horsemen. They are moving at a fast trot, faster than merchants or most other travellers. They could be brigands.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Flee, hoping to elude them until nightfall", 31));
+        Choices.push_back(Choice::Base("Stand your ground, greet them and offer to throw in your lot with them", 123));
+        Choices.push_back(Choice::Base("[SPELLS] Cast a powerful spell to try to stop the bandits and escape them. However, there are many of them and it might not work", 305, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story094 : public Story::Base
+{
+public:
+    Story094()
+    {
+        ID = 94;
+
+        Text = "You sprint for it, little caring that you will crush the poor snakes you tread on. They writhe underfoot and hiss balefully. You manage to make it across the room, but one of the snakes sinks its fangs into your ankle just as you step up on the block. You strangle it, but the poison is already working its way through your veins and it produces an agonizing burning sensation.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "When the pain subsides, you open the door.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 99; }
+};
+
+class Story095 : public Story::Base
+{
+public:
+    Story095()
+    {
+        ID = 95;
+
+        Image = "images/filler2.png";
+
+        Text = "You think about how you will be able to defeat Hate. Then you remember the JEWEL OF SUNSET FIRE, held in the Tower of the Sentinel, surrounded by traps and monsters. The JEWEL apparently has great power to combat evil, but you have heard tales of many talented thieves trying to steal the JEWEL and never coming back alive. If you think getting the JEWEL is a lost cause, then you have no other ideas besides fleeing the city before it is destroyed.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Brave the Tower of the Sentinel", 387));
+        Choices.push_back(Choice::Base("Flee the city", 61));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story096 : public Story::Base
+{
+public:
+    Story096()
+    {
+        ID = 96;
+
+        Image = "images/filler1.png";
+
+        Text = "You pole to the shore, disembark from your gondola and announce that you will take the lepers to safety. This motley crew would follow you anywhere. They shuffle along in your wake, calling out feebly for food and medicine, though there is no magic or medicine that can restore these disfigured unfortunates to health. You are not bothered by city guardsmen, nor thieves and cut-throats while surrounded by your crowd of lepers. The sweet putrefying smell that seeps from their bandages is an antidote to the stench of death that pervades the city. As you think about where you can take this motley band, you notice a woman gesture at you from an alleyway. She wears leather armour and fixes you with an intense stare.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Approach the woman", 33));
+        Choices.push_back(Choice::Base("Ignore her and carry on", 461));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story097 : public Story::Base
+{
+public:
+    Story097()
+    {
+        ID = 97;
+
+        Text = "The bandits eventually catch up with you, where they surround you with their horses. Grinning, they dismount and, at sword point, strip you of all of your POSSESSIONS, leaving you with nothing before riding off back to their camp. There is much mirth at your plight.\n\nIt is obvious that these men will forget about you as soon as you are out of sight, just another victim on the road. At least they haven't harmed you.";
+
+        Bye = "In low spirits, you continue westwards to the Great Forest.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ALL(player);
+    }
+
+    int Continue(Character::Base &player) { return 501; }
+};
+
+class Story098 : public Story::Base
+{
+public:
+    Story098()
+    {
+        ID = 98;
+
+        Image = "images/skakshi.png";
+
+        Text = "Skakshi is holding his THROWING KNIFE, but you know you are quicker than him. You grab a KNIFE from your belt and fling it at him, just as he throws his. There is a pause and then a clang as the TWO KNIVES collide in mid-air. Before anyone else can react, you have already run across the room and grabbed him by the scruff of the neck.\n\n\"Listen, worm. That knife didn't kill you because I didn't want it to kill you.\"\n\n\"What do you want from me?\" squeals the thief.\n\n\"Take me to Melmelo, the Guildmaster. I have something to say to him that is for his ears only.\"\n\n\"I can do that just let me tend to this wound!\"\n\nYou let go of the thief, letting him crumple to the floor. Two of his friends rush to his side, carefully remove the KNIFE and bandage his wound. You pick the KNIFE up, clean it and replace it in your belt.";
+
+        Bye = "When Skakshi has recovered, he tells you to follow him.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 214; }
+};
+
+class Story099 : public Story::Base
+{
+public:
+    Story099()
+    {
+        ID = 99;
+
+        Image = "images/giant-spider.png";
+
+        Text = "You climb some more stairs until you come to another door. Various cabbalistic signs like ancient cave paintings have been daubed on the outside of the topmost door in terracotta and charcoal. If your hopes are not disappointed, the JEWEL OF SUNSET FIRE lies inside this topmost room.\n\nAt the top of the staircase is a series of frescoes showing the tower and depicting the grisly fates that befall those who try to climb it. To your absolute horror, the final fresco is a picture of you, squashed flat beneath a gigantic bloated black spider. Above the spider you can see the orb shining brightly in its frame.\n\nYou walk on up a narrower spiral of stairs and at last pause before the final door. Gingerly you push it open, wincing at the creak of its rusty hinges. There is a brooding presence of evil here.";
+
+        Bye = "Your heart hammers in your chest as you step forward.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 505; }
 };
 
 auto customShop = CustomShop();
@@ -2866,6 +3089,16 @@ auto story086 = Story086();
 auto story087 = Story087();
 auto story088 = Story088();
 auto story089 = Story089();
+auto story090 = Story090();
+auto story091 = Story091();
+auto story092 = Story092();
+auto story093 = Story093();
+auto story094 = Story094();
+auto story095 = Story095();
+auto story096 = Story096();
+auto story097 = Story097();
+auto story098 = Story098();
+auto story099 = Story099();
 
 void InitializeStories()
 {
@@ -2878,7 +3111,8 @@ void InitializeStories()
         &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
         &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
-        &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089};
+        &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
+        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099};
 }
 
 #endif

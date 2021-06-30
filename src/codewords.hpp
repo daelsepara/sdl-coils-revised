@@ -24,7 +24,8 @@ namespace Codeword
         ARMED,
         TOWER,
         JEWEL,
-        THRUST
+        THRUST,
+        GOODNESS
     };
 
     std::map<Codeword::Type, const char *> Descriptions = {
@@ -44,9 +45,10 @@ namespace Codeword
         {Codeword::Type::ARMED, "Armed"},
         {Codeword::Type::TOWER, "Tower"},
         {Codeword::Type::JEWEL, "Jewel"},
-        {Codeword::Type::THRUST, "Thrust"}};
+        {Codeword::Type::THRUST, "Thrust"},
+        {Codeword::Type::GOODNESS, "Goodness"}};
 
-    std::vector<Codeword::Type> Invisible = {};
+    std::vector<Codeword::Type> Invisible = {Codeword::Type::GOODNESS};
 
     bool IsInvisible(Codeword::Type codeword)
     {
