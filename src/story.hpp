@@ -513,6 +513,8 @@ public:
     {
         ID = 1;
 
+        Image = "images/filler1.png";
+
         Text = "Walk the streets you must, for there is no food and nothing to be gained from idling here in the hovel you call home. You push the rotten front door open gently. There is a wet cracking noise and it splinters, coming off its hinges. You jump past into Copper Street as it falls into the street and breaks. It is beyond repair. Even before you turn the corner of the narrow mired street, a prowling thief, a sewer rat escaped from the fleet, is going into your home. You let him. You are carrying everything you own. He will find nothing but tick-ridden blankets and a leaking earthenware pot or two.\n\nAs you turn your back on the grey stone shacks of Copper Street, a youth, gangling and pasty faced, spits in your eye and calls out \"Judain scum.\" His green eyes ooze malice. The boy is beneath notice. He sneers with his nose in the air, like the rich folk of the riverfront, but his sailcloth breeches are out at the knees. His father is probably a tanner or a tinker or some such.\n\nYour time in Godorno has taught you to ignore such insults. However, the youth is not content to leave it at insults. \n\nHe pulls a tanner's knife from his pocket. It is long, sharp and menacing. There is no time to cast a spell.";
 
         Choices.clear();
@@ -601,6 +603,8 @@ public:
     {
         ID = 4;
 
+        Image = "images/filler1.png";
+
         Text = "You approach the guards confidently. Picking the pocket of one of the guards while you hand him your gold with the other hand is child's play to someone of your accomplishments. You palm his gold to your other hand and let the coins drop one by one into his greedily outstretched palm.\n\n\"Where's my share?\" demands another of the gate guards, holding out his palm, while his other hand rests menacingly on the pommel of his rapier. You clap him on the back and empty his money pouch as you do so, also relieving him of a fine gold chain that hangs at his neck in the process. All four guards are soon happy with their own money newly shared out among them and, at last, you are allowed out of the city.\n\nYou OBTAINED 15 gleenars.";
 
         Choices.clear();
@@ -622,6 +626,8 @@ public:
     Story005()
     {
         ID = 5;
+
+        Image = "images/filler1.png";
 
         Text = "As he sees who you are, the guard reaches for his horn and blows it. The three of you run through the streets. Marmeluke knows the streets well and before long, you have lost the guards. Eventually, you return to Ginath's house. Ginath puts you up for the night and feeds you. You have not delivered all of the goods, but Jared still gets paid a fair bit. He GIVES you and Marmeluke 75 gleenars each.\n\n\"Not bad for a night's work, eh, friend?\" Says Marmeluke.\n\nIn the morning, you leave Ginath's house. He is going to use the food and drink to share amongst the Judain left in the city. You both bid each other good luck. You then plan on making your escape.";
 
@@ -680,6 +686,8 @@ public:
     {
         ID = 7;
 
+        Image = "images/filler2.png";
+
         Text = "You hack wildly at the cloying purple flesh of Hate, opening up great gashes in its side which pour out vile yellow pus. As fast as you cut so the blob twitches, spasms and convulses, sucking the wretched guards into its soft embrace. You have to think of something else, so you try using the flat of your blade. Bashing Hate with the flat of the sword reduces the viscous purple flesh of the monster to jelly. Several of the guards are now able to pull themselves out of the body of Hate as it recoils from your punishing blows. Those still trapped implore their comrades to stay and free them, but not one of those you have rescued is prepared to risk his life for his friends.";
 
         Bye = "Eyes wide with terror, they bolt past you.";
@@ -699,7 +707,9 @@ public:
     {
         ID = 8;
 
-        Text = "You hurl the pomegranate with force and accuracy and it shoots straight into Hate's mouth and down its throat. The beast starts to shudder and a look of fear appears on its face.";
+        Image = "images/filler2.png";
+
+        Text = "You hurl the POMEGRANATE with force and accuracy and it shoots straight into Hate's mouth and down its throat. The beast starts to shudder and a look of fear appears on its face.";
 
         Bye = "The creature knows that its days are numbered.";
 
@@ -717,6 +727,8 @@ public:
     Story009()
     {
         ID = 9;
+
+        Image = "images/filler1.png";
 
         Text = "Skakshi takes you by a devious route, perhaps hoping you will get lost in the foreigners' quarter, which you have been travelling through now for ten minutes.\n\n\"What do you have in mind for Melmelo?\" Skakshi is anxious to know whether you intend the Guildmaster of Thieves any harm. There is naked ambition gleaming in his eyes; he is a truly nasty piece of work.\"Wait and see,\" you tell him.\n\nAt last you stand before a white stuccoed villa with an ornamental steam bath bubbling in the garden. \"This is Melmelo's place. The soft living here has made him unfit to lead our guild. There are many who are just waiting for something to happen.\"\n\n\"Thank you, Skakshi, for guiding me here. What is the password? I don't want to be killed for calling without an invitation.\"\n\n\"Just shout, 'Enchantress' and they will let you in. If anything happens, remember it was me, honest Skakshi, who bought you here. Don't tell Melmelo though.\" With that he is gone; he blends into the shadows like a ghost.";
 
@@ -826,6 +838,8 @@ public:
     {
         ID = 14;
 
+        Image = "images/filler1.png";
+
         Text = "You slink through the alleyways, dodging shadows and waiting patiently when you hear people walk by. You don't know if these people are the Overlord's soldiers, thieves or Sycaari, but you figure that at this time at night that you don't want to meet anyone in the streets. Eventually, you get to the guard's house. Before you approach it, you stake it out. The house has been neglected the wood is rotting and the door is open ajar. You cannot see any lights. This seems easy. You make sure that the coast is clear before approaching the door.";
 
         Choices.clear();
@@ -876,6 +890,8 @@ public:
     Story016()
     {
         ID = 16;
+
+        Image = "images/filler1.png";
 
         Text = "You decide to return to safety.";
 
@@ -1004,6 +1020,8 @@ public:
     {
         ID = 19;
 
+        Image = "images/filler1.png";
+
         Text = "You return to the dank cellar with the maps. Ahab looks at them. \"You have done well. You know what, I could do with someone like you. However, you did flee the city. You need to prove your worth some more. Our resistance needs funding. A few days ago, a Judain jeweller's assistant came to see us. His employer had fired him for being Judain and the man was not able to flee the city. He approached Captain Tormil who demanded all of his possessions. I'll have that cur's head one day. Anyway, his employer on Mire Street has obtained a large DIAMOND, forcefully taken from a Judain owner he has been ordered by the Overlord to fashion it into a sceptre. If you can get the DIAMOND and fence it, we can get some money and strike a blow against the Overlord.\"";
 
         Bye = "Ahab gives you the address of the shop.\n\nYou set off on your mission.";
@@ -1022,6 +1040,8 @@ public:
     Story020()
     {
         ID = 20;
+
+        Image = "images/concubine.png";
 
         Text = "It is a difficult leap but you just make it, launching yourself high in the air from a short run up. You land beside the girl and the bodies on the bed rock as the bedsprings bounce. The Overlord twitches again but does not awaken, while the girl lies inert, her back still towards you.";
 
@@ -1105,6 +1125,8 @@ public:
     {
         ID = 24;
 
+        Image = "images/filler2.png";
+
         Text = "You draw your WEAPON and hack at the tentacles. The creature withdraws, but a tentacle lashes out and knocks your WEAPON from your hand. The blob then lurches forward, putting any thought of retrieving the weapon out of your mind.";
 
         Bye = "You flee the blob before you become another lost soul.";
@@ -1129,7 +1151,9 @@ public:
     {
         ID = 25;
 
-        Text = "The man is strong and fierce, but you can tell that he has never had any formal training with a sword. He raises his weapon to deliver a brutal swing, but you easily step backwards and avoid it. Before he can recover, you thrust forwards, wounding his arm and causing him to drop his sword with a yelp of pain. The other brigands cheer and jeer.";
+        Image = "images/tough-guy.png";
+
+        Text = "The man is strong and fierce, but you can tell that he has never had any formal training with a SWORD. He raises his weapon to deliver a brutal swing, but you easily step backwards and avoid it. Before he can recover, you thrust forwards, wounding his arm and causing him to drop his SWORD with a yelp of pain. The other brigands cheer and jeer.";
 
         Bye = "You have proved yourself.";
 
@@ -1165,6 +1189,8 @@ public:
     {
         ID = 27;
 
+        Image = "images/filler2.png";
+
         Text = "You throw the POMEGRANATE with as much force as you can, but the creature turns its head at the last minute and it bounces harmlessly off its purple flesh. You won't be able to get it back now. \n\nWith the LOSS of the IVORY POMEGRANATE, you no longer reduce damage caused by Hate.\n\nYou have to think of another way to defeat Hate.";
 
         Choices.clear();
@@ -1187,6 +1213,8 @@ public:
     Story028()
     {
         ID = 28;
+
+        Image = "images/filler1.png";
 
         Text = "\"I don't need a knife to kill this scumbag. Remember when I killed that guard with one punch to the nose?\" You say to Ahab before you run across the square to Acennon.\n\nYou approach him and block his path. He looks at you in confusion.\n\n\"When you wake up, get what belongings you have left and leave the city. People want you dead and they are watching us now. This is going to hurt you, but it's not going to kill you. I'm sorry.\"\n\nYou then deliver a brutal blow to the face, enough to knock him out, but you know you didn't strike him hard enough or precisely enough to kill him.\n\nAs he crumples to the ground, you see Ahab run over to the shop to loot it. A minute later, he runs out, holding silver objects and a box.\n\n\"Good work. Let's get out of here.\"\n\nYou both run back to the cellar in Medallion Street where Ahab enthusiastically tells the others about your kill. You are given food, water and a share of the loot.\n\nYou OBTAINED 100 gleenars and the codeword SKANK.";
 
@@ -1213,6 +1241,8 @@ public:
     Story029()
     {
         ID = 29;
+
+        Image = "images/filler3.png";
 
         Text = "You arrive back at the jeweller's house later that night and stand surveying it in the moonlight. Your overwhelming impression is that this has all the hallmarks of a trap. The Overlord would hardly leave a priceless DIAMOND unguarded and he must be aware that his security measures, while enough to deter the casual thieves of the town, are simply an enticement to the pride of any true professional. So without a doubt there will be soldiers stationed in the house.\n\nClimbing up to the first floor, you prise open a window and tiptoe along the landing, listening at each door in turn. Sure enough, from behind one of the doors comes the rattle of gaming dice and the unmistakable banter of bored soldiers. You pause. This is where the DIAMOND must be kept. Continuing along the landing to the next door, you hear the sound of thundering snores. The jeweller's bedroom. Quietly inching the door open, you go to a cupboard and extract a nightshirt and cap, which you put on over your clothes. Then, darting swiftly along the landing, you fling open the first door and cry: \"Thief! There's a thief downstairs!\" The three soldiers leap up in amazement and grab their weapons, rushing past you along the landing with excited shouts. They are so intent on catching the thief and thereby earning a bonus that they don't even glance at your face.\n\nYou tear off the nightshirt and look around the room. A small locked chest catches your eye. Surely that is where the DIAMOND is. The lock looks pretty secure, but you can break it at your leisure once you are safely away from here. Only when you have put a safe distance between you and Mire Street do you pause to inspect the DIAMOND.";
 
@@ -1323,6 +1353,8 @@ public:
     {
         ID = 34;
 
+        Image = "images/filler1.png";
+
         Text = "You also know that there are certain streets that Judain should never go and not just because of the Overlord's men. You come to a street where you can hear drunken singing and shouting and decide to take a detour as you realise that the revellers here would turn violent at the sight of a Judain.";
 
         Bye = "Eventually, you make it to the ruins of the Synagogue.";
@@ -1402,6 +1434,8 @@ public:
     {
         ID = 38;
 
+        Image = "images/filler1.png";
+
         Text = "You walk out into the street \"Down with the Overlord!\" You shout as you wave your arms and make hand gestures at the guards. They immediately stop tormenting the Judain and stare at you, their eyes brimming with hatred. Then they run at you. You are going to have to be quick to outrun them.";
 
         Choices.clear();
@@ -1443,6 +1477,207 @@ public:
     }
 
     int Continue(Character::Base &player) { return 425; }
+};
+
+class Story040 : public Story::Base
+{
+public:
+    Story040()
+    {
+        ID = 40;
+
+        Image = "images/filler2.png";
+
+        Text = "The IVORY POMEGRANATE is one of the most holy artefacts in the Judain religion. Hate will find its touch poison. If you can get the POMEGRANATE inside Hate's mouth, it might be enough to finish the creature off.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        {
+            return 8;
+        }
+        else
+        {
+            return 313;
+        }
+    }
+};
+
+class Story041 : public Story::Base
+{
+public:
+    Story041()
+    {
+        ID = 41;
+
+        Text = "The inner ring has a large hall where all the prisoners eat, whilst being watched by guards. Its design is called the Panopticon and it allows the prisoners to be watched from all places. In the centre of the hall is a giant blob of purple flesh and tentacles, pulsating slowly, as if it is resting. A score of guards can be seen partly submerged in the flesh. Upon seeing you, they give low moans of despair. This has been the work of but a single night for Hate, and what is worse, is that the blobs seem to be getting bigger.\n\nMost of the men have only been sucked in as far as both elbows, or knees, but they are all exhausted by their fruitless struggle to break free. Unable any longer to resist the pull of Hate they are being submerged in the purple morass inch by inch.\n\nMost of the men are wailing out repentance for the atrocities they have committed on the poor prisoners of Grond.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to set them free", 177));
+        Choices.push_back(Choice::Base("Leave them to their harsh but deserved fate and go on to free the Judain", 376));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story042 : public Story::Base
+{
+public:
+    Story042()
+    {
+        ID = 42;
+
+        Image = "images/filler1.png";
+
+        Text = "It is time for you to leave the city. Godorno has become too dangerous for you now. However, you are near the shop of your friend Tarkamandir. Tarkamandir is a sage who is able to get hold of many useful items. You have known him for a long time and he has always made sure that you have access to his finest goods. You could stay a little longer and visit him, or you could try to escape straight away.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Visit Tarkamandir", 453));
+        Choices.push_back(Choice::Base("Try to leave via the main gate", 344));
+        Choices.push_back(Choice::Base("Stow away on a barge", 522));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story043 : public Story::Base
+{
+public:
+    Story043()
+    {
+        ID = 43;
+
+        Image = "images/skakshi.png";
+
+        Text = "You speak the word of power that evokes the potent spell of Visceral Pang. Skakshi is seized by a palsy and he collapses to the sawdust covered floor, writhing and frothing at the mouth.\n\n\"You, Skakshi, will take me to meet with your guildmaster, Melmelo. I have a proposition to put to him for his ears only.\"\n\n\"I'll do anything, Judain. Anything! Just release me from this wracking spell.\"\n\nYou take pity on the miserable wretch and banish the spell with a thought. Skakshi rises slowly to his feet and says he will take you to Melmelo's stronghold, claiming that only he knows the password.";
+
+        Bye = "Skakshi fears that you are going to kill him.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 214; }
+};
+
+class Story044 : public Story::Base
+{
+public:
+    Story044()
+    {
+        ID = 44;
+
+        Image = "images/concubine.png";
+
+        Text = "You gather the girl in your arms. She is as light as a feather pillow and quite limp. Her face is untouched by the blemishes which mar her body and she is quite beautiful, as you would expect of the Overlord's concubine. You then think about how to get both her and yourself across the carpet without stepping on it. You wrap her in the silk bedspread and decide to drag her from the bed after leaping clear.\n\nYou jump to safety, holding one corner of the bedspread, then tug it hard so that the girl slips from the bed and is dragged across the carpet. As soon as the swaddled form touches the filigreed carpet, the wires spring forth to entangle themselves in the counterpane. Try as you might, you cannot drag her any further.\n\nA large black form, like a manta ray or a vampire's cloak, detaches itself from the underside of the canopy of the Overlord's bed and drifts down through the air towards your head.\n\nYou still have time to make a run for it if you want to leave the girl.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave the girl", 519));
+        Choices.push_back(Choice::Base("Go back onto the carpet to cut the concubine free", 70));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story045 : public Story::Base
+{
+public:
+    Story045()
+    {
+        ID = 45;
+
+        Image = "images/filler2.png";
+
+        Text = "Huge chunks of purple flesh are strewn about the plaza. You start to advance to finish Hate off, but before you do, you head a voice in your head. It is Lucie's.\n\n\"Please stop. You are hurting me!\" You hear her melodious voice say. An image flashes in your mind. She is trapped in Hate, suffering because of the pain you brought upon the beast.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stop", 164));
+        Choices.push_back(Choice::Base("Destroy Hate, whatever the cost", 509));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story046 : public Story::Base
+{
+public:
+    Story046()
+    {
+        ID = 46;
+
+        Text = "Your senses have been honed razor-keen by your many escapades on the hazy edge of the law. When a thief treads lightly on the steps leading down to your cellar hideout, you are instantly awake and on your feet. A figure stands in its shadows. Seeing that you are awake, the intruder turns and bolts away. You chase him up the street, but he is already out of sight. Your only impression was of a small build and very quick reflexes. You must be on the look-out for such a person.";
+
+        Bye = "You go back to your lair and spend the rest of the night undisturbed.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 502; }
+};
+
+class Story047 : public Story::Base
+{
+public:
+    Story047()
+    {
+        ID = 47;
+
+        Image = "images/filler2.png";
+
+        Text = "Hate turns its head and roars at you. You smell the fetid breath of the creature as it squirms towards you, eager to absorb you into its being.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Step into Hate's maw", 528));
+        Choices.push_back(Choice::Base("Hesitate", 554));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story048 : public Story::Base
+{
+public:
+    Story048()
+    {
+        ID = 48;
+
+        Image = "images/filler2.png";
+
+        Text = "You did not obtain the JEWEL OF SUNSET FIRE, but you have the JADE WARRIOR's SWORD. You wrack your brains, trying to think of anything else that could be used to fight Hate, but you cannot. You only hope that the SWORD will be enough.";
+
+        Bye = "You decide that it is time to face Hate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 283; }
+};
+
+class Story049 : public Story::Base
+{
+public:
+    Story049()
+    {
+        ID = 49;
+
+        Text = "You may have the barricade and you may have the advantage of numbers, but the Overlord's men are still trained soldiers. The first sign of attack is a cry of pain from one of the archers on a nearby roof. Then you see all your archers fall. The Overlord's men must have broken in through the backs of the houses or climbed on the roofs.\n\nThen you see why a dozen black clad guards are now on the floors pointing crossbows at your group. From where they are, hitting the defenders is like shooting fish in a barrel. The first volley fells six Judain. The survivors attempt to throw their missiles at the Overlord's men, but they are out of range. Then come the squad of guards, charging down the street at the barricade, wielding axes and swords. Some have grappling hooks. Another volley of crossbow bolts rains down on the defenders and some of them flee in panic, but their escape is blocked by a squad of guards that snuck around the barrier. They are quickly put to the sword. The ones that stay fight bravely, but they are no match for the heavily armed and armoured soldiers.\n\nThe next day, Ahab will admit that he made a mistake, but it will do little good for your corpse as it rots in the streets of Godorno.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
 };
 
 auto customShop = CustomShop();
@@ -1487,6 +1722,16 @@ auto story036 = Story036();
 auto story037 = Story037();
 auto story038 = Story038();
 auto story039 = Story039();
+auto story040 = Story040();
+auto story041 = Story041();
+auto story042 = Story042();
+auto story043 = Story043();
+auto story044 = Story044();
+auto story045 = Story045();
+auto story046 = Story046();
+auto story047 = Story047();
+auto story048 = Story048();
+auto story049 = Story049();
 
 void InitializeStories()
 {
@@ -1494,7 +1739,8 @@ void InitializeStories()
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
-        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039};
+        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
+        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049};
 }
 
 #endif
