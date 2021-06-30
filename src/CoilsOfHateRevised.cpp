@@ -1130,8 +1130,6 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
                             {
                                 if (player.Life == player.MAX_LIFE_LIMIT)
                                 {
-                                    flash_message = true;
-
                                     message = "You are not INJURED!";
 
                                     flash_color = intRD;
@@ -1146,13 +1144,55 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
 
                                     message = "Your RECOVER 1 Life Point.";
 
-                                    flash_color = intLG;
+                                    flash_color = intLM;
 
                                     start_ticks = SDL_GetTicks();
 
                                     flash_message = true;
 
                                     used_up = true;
+                                }
+                            }
+                            else if (item.Type == Item::Type::IVORY_POMEGRANATE)
+                            {
+                                if (player.Life == player.MAX_LIFE_LIMIT)
+                                {
+                                    message = "You are not INJURED!";
+
+                                    flash_color = intRD;
+
+                                    start_ticks = SDL_GetTicks();
+
+                                    flash_message = true;
+                                }
+                                else
+                                {
+                                    if (item.Charge > 0)
+                                    {
+                                        player.Life = player.MAX_LIFE_LIMIT;
+
+                                        message = "Your RECOVER ALL Life Points.";
+
+                                        flash_color = intLM;
+
+                                        start_ticks = SDL_GetTicks();
+
+                                        flash_message = true;
+
+                                        used_up = false;
+
+                                        Character::REFILL(player, Item::Type::IVORY_POMEGRANATE);
+                                    }
+                                    else
+                                    {
+                                        message = "The IVORY POMEGRANATE's Life restoring powers have been USED UP.";
+
+                                        flash_color = intRD;
+
+                                        start_ticks = SDL_GetTicks();
+
+                                        flash_message = true;
+                                    }
                                 }
                             }
 
@@ -1863,6 +1903,10 @@ void renderAdventurer(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *font
             if (player.Items[i].Charge == 0)
             {
                 possessions += "destroyed";
+            }
+            else if (player.Items[i].Charge > 0)
+            {
+                possessions += std::to_string(player.Items[i].Charge);
             }
 
             possessions += ")";

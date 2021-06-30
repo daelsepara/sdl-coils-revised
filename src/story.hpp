@@ -1944,7 +1944,7 @@ public:
 
         Image = "images/diamond.png";
 
-        Text = "Konstantin, is a very slippery character. He has a series of hideouts across the city almost impossible to find unless you know how to look for the discreet signs that he leaves around the place. The nearest one to you is a room that you can only access through the sewers. You approach the storm drain that you both used to access it. After checking that no one is around, you lift it up and then stop. There is something scratched into the wall, unnoticeable to anyone who doesn\"t understand its meaning, but it makes you stop dead. Two lines are scratched in the shape of a cross, indicating that the hideout has been compromised. Then the smell hits you. Instead of the smell of sewage, you smell camphor and honeysuckle. Then you realise what has happened. Hate has claimed the sewers for itself. You then head to another hideout. You eventually find Konstantin in the cellar of a fallen down hovel in the foreigner\"s quarter. He looks pleased to see you.\n\n\"It is good to see you my friend. You have caught me preparing to elope this city as there is too much danger here now. Even if I weren't Judain, I would fear that my days are numbered.\"\n\n\"It's Hate, isn't it?\"\n\n\"If that's what you call the huge purple creatures that are assaulting our homes and our people, then yes. Those purple blobs are infesting every corner of Godorno. Even the sewers aren't safe any more. If I were you, I would leave as quickly as you can.\"\n\n\"I can't. I have to save my people.\"\n\n\"I thought you would say that. Caiaphas chose his pupils well, didn't he? Well, at least let me help you.\" Konstantin pulls out a large DIAMOND, the size of a walnut from his pocket and hands it to you \n\n\"This should set you up nicely for when you do escape the city. Sell it and live comfortably for many years.\" You open your mouth to protest, but Konstantin raises his hand to stop you \"This is a mere trinket compared to what I've managed to amass over the years. I won't even notice it's gone.\"\n\nKonstantin also offers you a ROPE and GRAPPLE which you may take.";
+        Text = "Konstantin, is a very slippery character. He has a series of hideouts across the city almost impossible to find unless you know how to look for the discreet signs that he leaves around the place. The nearest one to you is a room that you can only access through the sewers. You approach the storm drain that you both used to access it. After checking that no one is around, you lift it up and then stop. There is something scratched into the wall, unnoticeable to anyone who doesn\"t understand its meaning, but it makes you stop dead. Two lines are scratched in the shape of a cross, indicating that the hideout has been compromised. Then the smell hits you. Instead of the smell of sewage, you smell camphor and honeysuckle. Then you realise what has happened. Hate has claimed the sewers for itself. You then head to another hideout. You eventually find Konstantin in the cellar of a fallen down hovel in the foreigner's quarter. He looks pleased to see you.\n\n\"It is good to see you my friend. You have caught me preparing to elope this city as there is too much danger here now. Even if I weren't Judain, I would fear that my days are numbered.\"\n\n\"It's Hate, isn't it?\"\n\n\"If that's what you call the huge purple creatures that are assaulting our homes and our people, then yes. Those purple blobs are infesting every corner of Godorno. Even the sewers aren't safe any more. If I were you, I would leave as quickly as you can.\"\n\n\"I can't. I have to save my people.\"\n\n\"I thought you would say that. Caiaphas chose his pupils well, didn't he? Well, at least let me help you.\" Konstantin pulls out a large DIAMOND, the size of a walnut from his pocket and hands it to you \n\n\"This should set you up nicely for when you do escape the city. Sell it and live comfortably for many years.\" You open your mouth to protest, but Konstantin raises his hand to stop you \"This is a mere trinket compared to what I've managed to amass over the years. I won't even notice it's gone.\"\n\nKonstantin also offers you a ROPE and GRAPPLE which you may take.";
 
         Bye = "Konstantin leaves the cellar in preparation to quit the city. You decide to head back to Bumble Row.";
 
@@ -2166,6 +2166,298 @@ public:
     }
 };
 
+class Story070 : public Story::Base
+{
+public:
+    Story070()
+    {
+        ID = 70;
+
+        Text = "As soon as you step onto the carpet the gold and silver filigree threads seem to bunch and tighten beneath the balls of your feet. Before you can try to set yourself free, the black shape settles heavily over your head. Its skin sports rows of barbed spines that inject poison into your bloodstream. Try as you might, you can't break free. The poison turns your blood to cloying syrup. You collapse onto the carpet, which garrottes you whilst the poison stops your heart. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story071 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story071()
+    {
+        ID = 71;
+
+        Bye = "You recover your KNIVES. You then help the man.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You throw your second KNIFE. This one strikes another guard in the neck. He falls into the street, red blood gushing out of his wound and mixing with the brown muck covering the cobbles. The third guard is now upon you. You will have to fight him in close quarters.\n\n";
+
+        auto DAMAGE = -2;
+
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            DAMAGE = 0;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -1;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        if (DAMAGE < 0)
+        {
+            Character::GAIN_LIFE(player, DAMAGE);
+
+            PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Point(s).";
+        }
+        else
+        {
+            PreText += "You do not lose any Life Points.";
+        }
+
+        if (player.Life > 0)
+        {
+            Character::GET_ITEMS(player, {Item::KNIFE, Item::KNIFE});
+        }
+
+        Take = {Item::SWORD};
+
+        Limit = 1;
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 417; }
+};
+
+class Story072 : public Story::Base
+{
+public:
+    Story072()
+    {
+        ID = 72;
+
+        Image = "images/jade-warriors.png";
+
+        Text = "One of the swords has a halo which shines brighter than the others. You steal up behind the Jade Warrior and throw yourself against its sword arm, wrenching the blade from its grasp.\n\nYou OBTAINED a JADE WARRIOR's SWORD.\n\n\"Obey me, Jade Warriors,\" you cry out on impulse. To your relief and amazement they line up before you and stand to attention. The warrior from whom you took the sword picks up another from behind an awning. The warriors are ready to do your bidding.\n\nYou know that the Jade Warriors cannot go far from the jade ring that the emperor wore, so you search the chamber until you find it. You can lead them anywhere. You decide against taking them above ground as the entire army of the Overlord would descend on you. Even with these mighty guardians, you would not prevail. However, they can still be useful to you under the city.\n\nYou lead them through the sewers until you come across a large circular room that looks like a junction of several tunnels. Purple slime lines the wall and floor, indicating that the blobs of Hate regularly pass this way. You drop the ring on the floor and leave the Jade Warriors to their duty. You then head back to the burial chamber.\n\nYou gained the codeword HECATOMB.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::JADE_WARRIORS_SWORD});
+
+        Character::GET_CODEWORDS(player, {Codeword::Type::HECATOMB});
+    }
+
+    int Continue(Character::Base &player) { return 354; }
+};
+
+class Story073 : public Story::Base
+{
+public:
+    Story073()
+    {
+        ID = 73;
+
+        Text = "On your travels, you come across a small hillock which raises your suspicions. There's something wrong with it, but you can't quite put your finger on it. Then it hits you it has a very unnatural shape. You have seen something like this before. Ancient structures become overgrown forming strange landmarks in the terrain. After some digging, you find an opening into the structure.\n\nYou enter it to find the remains of Judain shrine. Marble arches stand in it covered in moss and mud. This holy place has not been visited for many a year. However, as you stand in it, you feel a sense of peace and serenity wash over you. Then you feel something roll against your foot. You look down to see a beautiful IVORY POMEGRANATE inscribed with Judain prayers. Such an item would have adorned a high priest's sceptre. When you pick it up, you feel a tingle of power. This object contains divine essence.\n\nYou may use the IVORY POMEGRANATE once to restore all lost Life Points (this does not destroy it, however). The POMEGRANATE may have other uses.";
+
+        Bye = "Eventually, you leave the shrine.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::IVORY_POMEGRANATE});
+    }
+
+    int Continue(Character::Base &player) { return 142; }
+};
+
+class Story074 : public Story::Base
+{
+public:
+    Story074()
+    {
+        ID = 74;
+
+        Text = "You sneak through the streets until you come to Tagil's house in the Old Quarter. You can tell where he lives as he has put the armour and helmets of several of the Overlord's men outside his house. None dare challenge him now. When you knock on the door. After a while, your start to hear the noise of several bolts being pulled back. The door opens to reveal Tagil. Despite being in his mid-fifties, he still sports a muscular frame and from the stories you have heard, he has lost none of his skill with age. He greets you and ushers you inside hastily. Once in the house, he serves you the last food he has half a stale loaf and some cheese. He eats the other half. As you eat you talk.\n\n\"It's lucky you came to see me today, young one. I'm leaving today.\"\n\n\"Why? You can handle yourself against the Overlord's men.\"\n\nTagil spits on the floor.\n\n\"Those amateurs? I could last against them for an eternity. It's just that they're not the worst thing in this city any more. I've seen huge purple blobs, trapping people like flies in syrup. I can't fight this thing. If you have any sense, you would leave to. Come with me.\"\n\n\"I have to stay and save my people.\" You reply.\n\n\"I won't argue. You've always been stubborn. I'll help you if you stay. I have been thinking of how to destroy this huge creature. You would need a weapon of magic and power. Then I remembered the Jade Warriors. These artificial creatures protect the Megiddo dynasty and carry swords sharper than any steel sword could be. I remember the legend that one of the swords was able to control these creatures.\"\n\nTagil tells you the legend of the Jade Warriors and how to control them. Tagil also offers you a SWORD and a KNIFE. You may take one or both of these.\n\nYou gained the codeword JADE.";
+
+        Bye = "You bid your mentor a fond farewell and decide to head back to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::JADE});
+
+        Take = {Item::SWORD, Item::KNIFE};
+
+        Limit = 2;
+    }
+
+    int Continue(Character::Base &player) { return 339; }
+};
+
+class Story075 : public Story::Base
+{
+public:
+    Story075()
+    {
+        ID = 75;
+
+        Text = "You ponder the landlord's words. Harakadnezzar created a mighty empire, but at the cost of tens of thousands of lives. The man slaughtered countless people in his quest for power before being assassinated by one of his closest advisors. If he has returned, then he could make the whole city suffer. Hate could also level the city. You have heard that in places of great decadence, Hate will be given form and grow into a huge unstoppable monster that will destroy everything in its path. This was the fate of the city of Kush. If Hate is growing under Godorno, then the whole city might be destroyed. Either of these creatures would be a grave threat to the city. How could you overcome them, you think? Lost in your thoughts, you reach for your mug of ale.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::ROGUERY))
+        {
+            return 324;
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            return 373;
+        }
+        else
+        {
+            return 116;
+        }
+    }
+};
+
+//TODO: Make sure choices leading up to this section will deduct the amount of money or food you wish to give
+class Story076 : public Story::Base
+{
+public:
+    Story076()
+    {
+        ID = 76;
+
+        Text = "\"Thank you. I don't have anything to my name, but you have given me some hope. Good luck. I hope to see you again.\"\n\nAnd with that, the man carries on up the road.";
+
+        Bye = "You continue to Godorno.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 269; }
+};
+
+class Story077 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story077()
+    {
+        ID = 77;
+
+        Image = "images/filler2.png";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack this mass of Hate", 452));
+        Choices.push_back(Choice::Base("Flee", 275));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You watch as Tormil is dragged towards the blob. At first he screams for help. As he starts to be absorbed by the blob, he breaks down in tears. Sobbing, he begs you to free him from the deathly mass, but you do nothing but watch as he is drawn to his doom. Eventually, he is submerged beneath the purple slime, his anguished face still visible beneath the surface of the slime. Terror draws bile into your throat and you cannot help giving a small cry of horror. Averting your face, you leave the grisly scene behind. You are ashamed to think that you let anyone be condemned to such a fate, even a cur like Tormil.";
+
+        if (!Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::VENEFIX});
+
+            PreText += "\n\nYou gained the codeword VENEFIX.";
+        }
+        else
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::SATORI);
+        }
+
+        PreText += "\n\nNow what will you do?";
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story078 : public Story::Base
+{
+public:
+    Story078()
+    {
+        ID = 78;
+
+        Text = "As soon as the tentacle wraps around you, you feel a debilitating pain inside you and you feel your whole body go numb. There is nothing you can do to stop Hate dragging you towards its massive purple body where it will absorb yours. Soon you will join thousands others in an orgy of despair where you will languish in agony for eternity.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story079 : public Story::Base
+{
+public:
+    Story079()
+    {
+        ID = 79;
+
+        Image = "images/filler1.png";
+
+        Text = "You go back to your shelter for the night.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::LEVAD}))
+        {
+            return 547;
+        }
+        else
+        {
+            return 147;
+        }
+    }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -2238,6 +2530,16 @@ auto story066 = Story066();
 auto story067 = Story067();
 auto story068 = Story068();
 auto story069 = Story069();
+auto story070 = Story070();
+auto story071 = Story071();
+auto story072 = Story072();
+auto story073 = Story073();
+auto story074 = Story074();
+auto story075 = Story075();
+auto story076 = Story076();
+auto story077 = Story077();
+auto story078 = Story078();
+auto story079 = Story079();
 
 void InitializeStories()
 {
@@ -2248,7 +2550,8 @@ void InitializeStories()
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
         &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
-        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069};
+        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
+        &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079};
 }
 
 #endif
