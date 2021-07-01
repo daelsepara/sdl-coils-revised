@@ -24,6 +24,7 @@ namespace Item
         GRAPPLE,
         FOOD,
         SILVER_MIRROR,
+        BOOK_OF_MAPS,
         First = MAGIC_AMULET,
         Last = SILVER_MIRROR
     };
@@ -75,8 +76,9 @@ namespace Item
     auto GRAPPLE = Item::Base("GRAPPLE", "GRAPPLE", Item::Type::GRAPPLE);
     auto FOOD = Item::Base("FOOD", "FOOD", Item::Type::FOOD);
     auto SILVER_MIRROR = Item::Base("SILVER MIRROR", "SILVER MIRROR", Item::Type::SILVER_MIRROR);
+    auto BOOK_OF_MAPS = Item::Base("BOOK OF MAPS", "BOOK OF MAPS", Item::Type::BOOK_OF_MAPS);
 
-    std::vector<Item::Type> UniqueItems = {};
+    std::vector<Item::Type> UniqueItems = {Item::Type::JEWEL_OF_SUNSET_FIRE, Item::Type::JADE_WARRIORS_SWORD, Item::Type::IVORY_POMEGRANATE};
 
     bool IsUnique(Item::Type item)
     {

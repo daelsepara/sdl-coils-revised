@@ -3259,6 +3259,248 @@ public:
     }
 };
 
+class Story110 : public Story::Base
+{
+public:
+    Story110()
+    {
+        ID = 110;
+
+        Image = "images/filler1.png";
+
+        Text = "First you need to find a light source. Picking through a pile of debris, you find some suitably shaped bits of wood for torches. You then find some rags to tie around them and a piece of flint to make a spark. When you have a torch, you look for a way into the sewers. You find a loose storm drain nearby and you lift the grate, light a torch and head into the damp tunnels.\n\nYou walk down this tunnel with the waste water lapping at your feet. The smell of human excrement gets worse as you continue further down the tunnel. After ten minutes of tortuous walking, you come to a fork. Exploring these sewers is going to be a long and arduous process.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::BOOK_OF_MAPS}))
+        {
+            return 510;
+        }
+        else
+        {
+            return 159;
+        }
+    }
+};
+
+class Story111 : public Story::Base
+{
+public:
+    Story111()
+    {
+        ID = 111;
+
+        Image = "images/skakshi.png";
+
+        Text = "You recognise some of those present as senior members of the Thieves' Guild, grown rich on the juicy pickings of the latterday well-to-do of Godorno. They are well dressed, urbane looking men. One of them is called Skakshi, a man who likes to think of himself of the master thief of Godorno, despite being nowhere near Melmelo's level of skill and reputation.\n\n\"Skakshi, I see you lurking there. I have a proposition to put to Melmelo just the thing for Godorno's master thief.\" Skakshi scowls. He is no friend of Melmelo the Guildmaster.\n\n\"I can take you to Melmelo for the price I would be given if I turned you over to the city guard: ten gleenars. Do you have ten gleenars, Judain scum?\"\n\nThere are chuckles from the other customers at Skaksi's insolence.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Teach him a lesson in how to talk to his betters", 535));
+        Choices.push_back(Choice::Base("Agree to this bargain: pay 10 gleenars", 9, Choice::Type::LOSE_MONEY, 10));
+        Choices.push_back(Choice::Base("Tell Skakshi you will never pay his blood money", 363));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story112 : public Story::Base
+{
+public:
+    Story112()
+    {
+        ID = 112;
+
+        Image = "images/concubine.png";
+
+        Text = "You step gingerly onto the carpet and the gold and silver filigree threads seem to bunch and tighten beneath the balls of your feet. The Overlord stops breathing for a moment and you copy him. Then he rolls over and the stertorous noise starts again. In his sleep his hand caresses the girl's flank, but she doesn't wake. You take another step and struggle to make another, but the wires have snared around your ankle. The slender metal thread is cutting your ankle like a cheesewire. Cursing, you bend to free yourself. It should be easy enough to get free before the wire cuts through your leg. Then a sixth sense tells you to look up at the canopy of the bed. It does not fail you. Above you, what looks like a black blanket floats eerily down from beneath the canopy to engulf you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 317;
+        }
+        else if (Character::VERIFY_ITEMS_ANY(player, {Item::SWORD, Item::JADE_WARRIORS_SWORD}))
+        {
+            return 412;
+        }
+        else
+        {
+            return 186;
+        }
+    }
+};
+
+class Story113 : public Story::Base
+{
+public:
+    Story113()
+    {
+        ID = 113;
+
+        Image = "images/town-crier.png";
+
+        Text = "As you head towards the gate, you pass a town crier, surrounded by a group of ragged people\n\n\"Hear this, hear this! Tomorrow, the Overlord will address the people as his victory in the war to purify Godorno comes ever closer. Very soon, he will remove all Judain from the city, except slaves. This is also true of practitioners of black magic, scholars of perverse lore, worshippers of forbidden gods, those who have spoken out against the Overlord and lazy workers. Tomorrow in Greenbark Plaza, we can all share the Overlord's victory.\"\n\nThis speech makes your blood boil, but then you think. Would it be possible to stop the Overlord if he is exposed? Maybe you should stay and see the speech.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stay for the speech", 414));
+        Choices.push_back(Choice::Base("Leave the city", 238));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story114 : public Story::Base
+{
+public:
+    Story114()
+    {
+        ID = 114;
+
+        Image = "images/filler1.png";
+
+        Text = "\"Help! Some Judain are escaping the city!\", you shout. \"They've killed a guard!\". The Overlord's men stop their attack and run off down the street. If there's one thing they hate more than law breakers, it's Judain.";
+
+        Bye = "Talmai approaches you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 425; }
+};
+
+class Story115 : public Story::Base
+{
+public:
+    Story115()
+    {
+        ID = 115;
+
+        Text = "As you walk away from the cellar, you think about your task. Grond is full of captured Judain and other political prisoners detained to await the mercy of the Overlord's torturers. The prison is extremely well guarded and secure. You cannot succeed at such an ambitious mission alone, and Ahab is unwilling to put any more Sycaari at further risk. That is why he's sent you, who he does not see as entirely loyal to the cause. You are going to need the help of an expert rogue.\n\nOn the other hand, you wonder if you should do this at all. Ahab sees you as expendable. He is simply sending you on missions that he does not want to risk his cronies with. And after seeing his level of gratitude after you stole the diamond for him, you doubt you will get any thanks from him. He is also completely ignoring the monsters that are stalking the street, which may be a bigger threat to the Judain's survival than the Overlord. Maybe it would be better to strike out alone.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Accept your mission and try to free the Judain from Grond", 532));
+        Choices.push_back(Choice::Base("Sever your ties with the Sycaari and Ahab", 138));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story116 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story116()
+    {
+        ID = 116;
+
+        Bye = "You leave the latrine and approach Lucie and the stranger.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You gulp down the honeyed ale which slips down your gullet, filling your stomach with a heavy warm glow. The amber nectar is thick and almost sticky, yet strangely moreish. You finish your pot with relish, wipe your mouth backhanded and immediately feel a pang of pain in your stomach. You rush to the latrine where you are violently sick. Just as you think you have recovered, another wave spurts out from your mouth. This one is a mixture of brown and red as blood is coming out too. Mercifully, your stomach finally empties and you collapse in a puddle of your own sick and other peoples' urine, exhausted.\n\nYou LOSE 2 Life Points.";
+
+        Character::GAIN_LIFE(player, -2);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nThe landlord had poisoned you for what you did to him. Thoughts of teaching him a lesson are quickly banished from your mind as the occupants of the tavern will probably round on you if you try to kill him.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 132; }
+};
+
+class Story117 : public Story::Base
+{
+public:
+    Story117()
+    {
+        ID = 117;
+
+        Image = "images/filler1.png";
+
+        Text = "You leave the shop and return to the inn. There you see a young man with dark hair, a nervous look about him and a bandaged arm. He is telling his story to the innkeeper.\n\n\"I am a Judain from Godorno. I had to flee the place for if the Overlord's men didn't get me, the plague certainly would have done.\"\n\nYou approach this man, introduce yourself and ask him for more about Godorno.\n\n\"It has become a terrible place. A plague has broken out unlike any I've seen before. Its victims are reduced to maniacal beasts. As if that's not bad enough, people have started to disappear in the night, both Judain and non-Judain. Both the Overlord and the Sycaari deny responsibility. But that is not all. The synagogue has been torn down. Caiaphas, the rabbi made sermon of peace and tolerance. He said that the actions of the Sycaari would only create a cycle of hatred and violence that would destroy the city. However, violence broke out amongst the congregation. No one knows who provoked it, either the Sycaari or the Overlord's agents, but the mob soon went out of control. The Overlord's soldiers did nothing to stop it and watched as people died and the synagogue was destroyed. Caiaphas was killed in the riot.\"\n\nYou listen to this in horror. Caiaphas was like a father to you. He helped raise you, he found you mentors to train you. And now he is dead. And the synagogue has been torn down. Godorno is worse than it ever has been. But can you make a difference if you return?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Get on a barge and return to Godorno", 294));
+        Choices.push_back(Choice::Base("Get away from the Overlord's mercenaries and head north to Mazarkhand", 297));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story118 : public Story::Base
+{
+public:
+    Story118()
+    {
+        ID = 118;
+
+        Text = "You swing the ROPE and GRAPPLE and aim for the wooden beam. You latch on with your first go. It is then a case for you to simply swing across the room, sailing over the angry, hissing snakes, to the other stone block. You land there gently and walk through the door, congratulating yourself.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::ROPE, Item::Type::GRAPPLE});
+    }
+
+    int Continue(Character::Base &player) { return 99; }
+};
+
+class Story119 : public Story::Base
+{
+public:
+    Story119()
+    {
+        ID = 119;
+
+        Image = "images/hate-attacks.png";
+
+        Text = "A giant purple worm breaks the surface of the Grand Canal and towers over the crowd. As this happens the crowd can do nothing but stare in bewildered terror. Then the worm comes crashing down on the stage, smashing it into splinters and crushing Ahab and the Overlord. The cacophony breaks the crowd out of their trance and they all start to rush out of the square, pushing and shoving each other to get as far away from Hate as possible. The Overlord's guards simply abandon their posts and join the stampede, their only instinct to escape. You stay to watch a little longer. The worm does not move forward, but starts to lurch and spasm as if it is undergoing some kind of transformation. Things start to bulge out of the front part of it and it rears back up into the air before landing in the Grand Canal with an enormous splash. The spray of water hits you, soaking you. Before you can do anything, however, the worm rears out of the water again, but this time it is different. This time it has a head. The creature now has two green eyes and a fang filled mouth, eager to devour the rest of the city. The face has a curious familiarity and then it hits you. It is a mixture of the Overlord's and Ahab's face. By absorbing the two most hateful men in the city, the transformation is now complete. The creature looks at you with a mixture of hate and hunger, eager to devour you and crashes in the plaza. Tentacles sprout from its purple flesh, seeking out anyone who was foolish enough to stay and the work lurches towards you. It is now mere feet from you. You can smell its warm fetid breath as it opens its mouth to devour you. Then it stops.\n\nThere is a clanking sound. You step back and look around to see what is happening. Chains are rising out of the stone ground of the plaza and tying themselves around the giant purple worm. This is holding it to the ground. An image of a woman in blue robes appears above the plaza. You recognise her as Erika, a powerful sorceress who lives on Giant's Tooth Island\n\n\"You must flee! I cannot hold this creature for long! Flee for your lives!\"\n\nThe image disappears. Hate is writhing and struggling under the magical chains.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::ARMED}))
+        {
+            return 100;
+        }
+        else
+        {
+            return 196;
+        }
+    }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -3372,6 +3614,16 @@ auto event106 = Event106();
 auto story107 = Story107();
 auto story108 = Story108();
 auto story109 = Story109();
+auto story110 = Story110();
+auto story111 = Story111();
+auto story112 = Story112();
+auto story113 = Story113();
+auto story114 = Story114();
+auto story115 = Story115();
+auto story116 = Story116();
+auto story117 = Story117();
+auto story118 = Story118();
+auto story119 = Story119();
 
 void InitializeStories()
 {
@@ -3387,7 +3639,8 @@ void InitializeStories()
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
-        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109};
+        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
+        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119};
 }
 
 #endif
