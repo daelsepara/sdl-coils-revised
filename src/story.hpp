@@ -1151,8 +1151,6 @@ public:
     {
         ID = 25;
 
-        Image = "images/tough-guy.png";
-
         Text = "The man is strong and fierce, but you can tell that he has never had any formal training with a SWORD. He raises his weapon to deliver a brutal swing, but you easily step backwards and avoid it. Before he can recover, you thrust forwards, wounding his arm and causing him to drop his SWORD with a yelp of pain. The other brigands cheer and jeer.";
 
         Bye = "You have proved yourself.";
@@ -1203,6 +1201,7 @@ public:
 
     void Event(Character::Base &player)
     {
+        // TODO: Implement DAMAGE REDUCTION with the IVORY POMEGRANATE
         Character::LOSE_ITEMS(player, {Item::Type::IVORY_POMEGRANATE});
     }
 };
@@ -1317,6 +1316,8 @@ public:
     Story033()
     {
         ID = 33;
+
+        Image = "images/lepers.png";
 
         Bye = "The woman turns to you.";
 
@@ -2003,7 +2004,7 @@ public:
 
         Image = "images/silver-eel-tavern.png";
 
-        Text = "\"Look, I just want to have a little chat with Melmelo. He won't even know it was you who told me.\" You say as you put the coins on the table.\n\n\"Fine, you go and talk to him then. He lives in a villa in the Foreignersø Quarter. It has an ornamental steam bath in the garden.\"\n\nYou gained the codeword LARCENY.";
+        Text = "\"Look, I just want to have a little chat with Melmelo. He won't even know it was you who told me.\" You say as you put the coins on the table.\n\n\"Fine, you go and talk to him then. He lives in a villa in the Foreigners' Quarter. It has an ornamental steam bath in the garden.\"\n\nYou gained the codeword LARCENY.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Order a drink from a bar", 306));
@@ -2919,7 +2920,7 @@ public:
     {
         ID = 96;
 
-        Image = "images/filler1.png";
+        Image = "images/lepers.png";
 
         Text = "You pole to the shore, disembark from your gondola and announce that you will take the lepers to safety. This motley crew would follow you anywhere. They shuffle along in your wake, calling out feebly for food and medicine, though there is no magic or medicine that can restore these disfigured unfortunates to health. You are not bothered by city guardsmen, nor thieves and cut-throats while surrounded by your crowd of lepers. The sweet putrefying smell that seeps from their bandages is an antidote to the stench of death that pervades the city. As you think about where you can take this motley band, you notice a woman gesture at you from an alleyway. She wears leather armour and fixes you with an intense stare.";
 
@@ -3501,6 +3502,286 @@ public:
     }
 };
 
+class Story120 : public Story::Base
+{
+public:
+    Story120()
+    {
+        ID = 120;
+
+        Text = "At the last, you seem to hear a high-pitched uncanny whispering coming from Hate's black maw. As it shudders in its death throes and you sink into the oblivion of death, you imagine that you hear its words: \"To the last I grapple with thee, Judain. From Hell's heart I stab at thee. For Hate's sake, I spit my last breath at thee!\" It pulls you close to its rancid maw as the two of you die. But you have died a true hero's death, bringing salvation to the city of your birth. Those that succumbed to Hate are restored to life and climb out of the catacombs to return to humanity.\n\nIn days to come, when Godorno is rebuilt, a statue will be erected to honour your memory. You have triumphed.";
+
+        Type = Story::Type::HERO_DEATH;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.Life = 0;
+    }
+};
+
+class Story121 : public Story::Base
+{
+public:
+    Story121()
+    {
+        ID = 121;
+
+        Image = "images/filler1.png";
+
+        Text = "This is not what you want. The Overlord is not the real enemy here, but Hate itself. It won't matter how many of the Overlord's followers you kill, you will only inspire others to take up arms against the Judain. You don't know how, but you are going to save your people another way.";
+
+        Bye = "But first, you need to find a new place to live.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 432; }
+};
+
+class Story122 : public Story::Base
+{
+public:
+    Story122()
+    {
+        ID = 122;
+
+        Image = "images/quay.png";
+
+        Text = "You think that maybe the abandoned ships in the harbour might have something that can combat Hate. You remember seeing that it had the flag of Federico Tadmor, the famous explorer and treasure hunter. His ship may have something that you might find useful.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Look for the ship", 479));
+        Choices.push_back(Choice::Base("Head back to your shelter", 16));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story123 : public Story::Base
+{
+public:
+    Story123()
+    {
+        ID = 123;
+
+        Text = "The brigands come to a halt before you.\n\n\"I wish to join you!\", you shout.\n\n\"Oh yeah? We don't let any old freeloader join our band,\" shouts a tall bald, scarred brigand. He dismounts from his horse, draws a serrated sword and approaches you, grinning like a wolf.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            return 25;
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            return 325;
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::THROWING))
+        {
+            return 319;
+        }
+        else if (Character::VERIFY_ITEMS_ANY(player, {Item::SWORD, Item::JADE_WARRIORS_SWORD}))
+        {
+            return 197;
+        }
+        else
+        {
+            return 347;
+        }
+    }
+};
+
+class Story124 : public Story::Base
+{
+public:
+    Story124()
+    {
+        ID = 124;
+
+        Text = "The green light is burning you both inside and out. It is as if your blood is boiling and your skin is charring.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 438;
+        }
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            return 336;
+        }
+        else
+        {
+            return 350;
+        }
+    }
+};
+
+class Story125 : public Story::Base
+{
+public:
+    std::string PreText = "";
+    bool SURVIVED = true;
+
+    Story125()
+    {
+        ID = 125;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        SURVIVED = true;
+
+        PreText = "Hate shrieks a cry of insensate fury as it sees you charging back to slice at it with your enchanted blade. In a welter of carnage, you and your monstrous foe lock in mortal combat. The green-tinted metal of your blade chops deep into Hate's soft purulent flesh, while its tentacles slap into you with stunning force. Those baleful green eyes gleam with a new emotion now not hatred and unreasoning violence, but the liquid gleam of fear. Hate knows that it is going to die today, but it sells its life dearly.\n\n";
+
+        auto DAMAGE = -9;
+
+        if (Character::HAS_SKILL(player, Skill::Type::SWORDPLAY))
+        {
+            DAMAGE = -7;
+
+            PreText += "[SWORDPLAY] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Points.";
+
+        if (player.Life <= 0)
+        {
+            SURVIVED = false;
+
+            player.Life = 1;
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (SURVIVED)
+        {
+            return 51;
+        }
+        else
+        {
+            return 120;
+        }
+    }
+};
+
+class Story126 : public Story::Base
+{
+public:
+    Story126()
+    {
+        ID = 126;
+
+        Image = "images/filler2.png";
+
+        Text = "Hate moves its giant body at the last second and the POMEGRANATE bounces harmlessly off its translucent purple flesh. The ARTEFACT lands beyond your reach.\n\nWith the LOSS of the IVORY POMEGRANATE, you no longer reduce damage caused by Hate.";
+
+        Bye = "You return to the fray with Hate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::IVORY_POMEGRANATE});
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            // TODO: Implement DAMAGE REDUCTION with the IVORY POMEGRANATE
+            Character::GET_CODEWORDS(player, {Codeword::Type::GOODNESS});
+        }
+    }
+
+    int Continue(Character::Base &player) { return 18; }
+};
+
+class Story127 : public Story::Base
+{
+public:
+    Story127()
+    {
+        ID = 127;
+
+        Text = "Throwing caution to the wind, you continue alone on the road until you see a cloud of smoke or dust up ahead.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Find a place to hide", 553));
+        Choices.push_back(Choice::Base("Face whatever is coming", 93));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story128 : public Story::Base
+{
+public:
+    Story128()
+    {
+        ID = 128;
+
+        Image = "images/filler2.png";
+
+        Text = "You do not want to die a senseless death, being slaughtered by the Overlord's men in the street, especially when you have a weapon with which to fight the true enemy Hate.";
+
+        Bye = "You grip the haft of the JADE WARRIOR's SWORD as you stalk the streets of Godorno, looking for the monster.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 283; }
+};
+
+class Story129 : public Story::Base
+{
+public:
+    Story129()
+    {
+        ID = 129;
+
+        Image = "images/mob.png";
+
+        Text = "Your SWORD rasps from its sheath. The youth starts to retreat, throwing his knife away and yelling at the top of his voice: \"Help, murderer! A Judain tried to kill me! Help me!\"\n\nBefore you can sheath your SWORD the shutters in the houses overlooking the street are flung open and the cry is taken up. A group of cobblers come advancing on you wielding their little hammers. Pots and pans rain down on your head from the windows above. A steaming hot sago pudding lands on your head and oozes down underneath your jerkin as you jump nimbly aside to avoid the contents of a chamber pot.";
+
+        Bye = "You have no choice but to flee before the mob overwhelms you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 523; }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -3624,6 +3905,16 @@ auto story116 = Story116();
 auto story117 = Story117();
 auto story118 = Story118();
 auto story119 = Story119();
+auto story120 = Story120();
+auto story121 = Story121();
+auto story122 = Story122();
+auto story123 = Story123();
+auto story124 = Story124();
+auto story125 = Story125();
+auto story126 = Story126();
+auto story127 = Story127();
+auto story128 = Story128();
+auto story129 = Story129();
 
 void InitializeStories()
 {
@@ -3640,7 +3931,8 @@ void InitializeStories()
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
-        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119};
+        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
+        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129};
 }
 
 #endif

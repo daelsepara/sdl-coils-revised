@@ -5078,7 +5078,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                 fillWindow(renderer, intWH);
 
-                //Fill the surface with background
+                // Fill the surface with background
                 stretchImage(renderer, background, 0, 0, SCREEN_WIDTH, buttony - button_space);
 
                 if (splash)
