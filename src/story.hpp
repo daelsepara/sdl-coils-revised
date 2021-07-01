@@ -584,6 +584,8 @@ public:
     {
         ID = 3;
 
+        Image = "images/vr-logo.png";
+
         Text = "Rulership would be a good choice here. You speak the words of the spell and point your wand at one of the soldiers. \"Get away from him!\" you hear him yell. \"The reward for this one is all mine!\" he shouts as he draws his sword. The other two also draw swords. The soldier you are controlling swings at one of the others who defends himself and soon a three way brawl erupts. The Judain slinks away, forgotten in the midst of the fighting.";
 
         Bye = "He heads towards you.";
@@ -749,6 +751,8 @@ public:
     {
         ID = 10;
 
+        Image = "images/vr-logo.png";
+
         Text = "Sailing amid a froth of high flitting cloud, the moon casts a thin creamy light down to the narrow streets. You slide from shadow to shadow until you reach Mire Street, where you pause in the lee of a doorway to take stock of your target. No lamp shows in the windows. On the upper storey, one of the latticed windows overlooking the street has been left ajar. According to the etiquette of your chosen profession, this is tantamount to an effusive invitation. Detaching yourself from the darkness, you make a nimble ascent of the shop front and slither in through the open window. Tiptoeing lightly over a large slumbering guard dog lying across the landing, you quickly reconnoitre the house, discovering three of the Overlord's soldiers on watch in an upstairs room. Surveying them from behind a drape, you notice a small locked treasure-chest in an alcove at the back of the room. Without a doubt that is where the DIAMOND is kept.\n\nYou bite your lip, sizing up the situation. The three sentries are intent on a dice game, and the flickering lamplight in the room provides ample shadows for concealment, bit even so the job will not be easy. Amateur rogues often assume that speed is the important thing in a job like this. Long experience has taught you better. The key to success is to take your time. Luckily patience is your only virtue, so you have had plenty of opportunity to practise it over the years.\n\nCreeping low, pressed hard back into the dingy shadows by the wainscoting, you inch round the room. All the while the three guards go on with their game. Through your eyes remain firmly fixed on the treasure-box you listen to the hisses of breath and grunts and curses that indicate when someone has lost a throw, to the gulps of watered wine taking during respites in the game, to the rattle of ice and the slap of copper coins on the wooden tabletop. But still the guards remain oblivious to the rogue at their backs who is intent on whisking away a greater fortune in this one night that they will win or lose in their whole lives.\n\nYou reach the treasure chest at last and allow yourself a backward glance. One of the guards is now slumped dozily across the table. Another fingers the dice idly, tired of squandering his pay. The third grunts and begins to clean his fingernails with a dagger. \"How much longer are we on duty for?\" he asks.\n\n\"The next watch ought to be here in a few minutes to relieve us.\" replies the man with the dice. Now you know you must work fast. Hardly daring to breathe, you insert a bent pin into the lock and twist it with consummate precision. No surgeon ever operated so carefully upon a patient, no swain ever gave such loving entries to his paramour, no artist ever wielded a brush with such fine skill, as you work now upon that tiny lock.\n\nYour diligence is rewarded; the lock abandons its duties with a soft tut. The lid of the coffer yields to your eager touch, and you allow yourself a smile as you lift out the GEMSTONE you came for.";
 
         Bye = "Placing in your mouth for safekeeping the sweetest lozenge you ever saw, you skulk back noiselessly across the room and descend the stairs to emerge moments later into the night air.";
@@ -768,6 +772,8 @@ public:
     {
         ID = 11;
 
+        Image = "images/filler1.png";
+
         Text = "\"Look, we're no trouble. We just stayed out late. We're just heading back to our houses. Why don't we forget this ever happened?\" You say, taking the money out of your purse. The guard's eyes light up \"I'm going to patrol the docks. You've got ten minutes.\" He says as he stuffs the coins into his pocket. He then walks off down the docks.";
 
         Bye = "You run aboard the boat, grab as much food as you can and take it back to Ginath's house.";
@@ -786,6 +792,8 @@ public:
     Story012()
     {
         ID = 12;
+
+        Image = "images/vr-logo.png";
 
         Text = "The KNIFE is perfect for the job. You send it into the bloated gasbag of a body which is punctured. Black ichor sprays all over the room.";
 
@@ -1084,6 +1092,8 @@ public:
     {
         ID = 22;
 
+        Image = "images/vr-logo.png";
+
         Text = "Of course you trust lovely little Lucie. She takes your hand and leads you into a quiet courtyard that gives out onto the upper end of Fortuny Street. You walk through an arboretum of magnolia trees and hanging baskets of weeping lilies and find yourself surrounded by the Overlord's men with crossbows pointed at your chest. Lucie smiles a wicked little smile.";
 
         Choices.clear();
@@ -1150,6 +1160,8 @@ public:
     Story025()
     {
         ID = 25;
+
+        Image = "images/vr-logo.png";
 
         Text = "The man is strong and fierce, but you can tell that he has never had any formal training with a SWORD. He raises his weapon to deliver a brutal swing, but you easily step backwards and avoid it. Before he can recover, you thrust forwards, wounding his arm and causing him to drop his SWORD with a yelp of pain. The other brigands cheer and jeer.";
 
@@ -1262,6 +1274,8 @@ public:
     {
         ID = 30;
 
+        Image = "images/filler1.png";
+
         Text = "You cast a simple spell of Befuddlement on the guard who leaves his post and wanders off down the street. With the guard dealt with, you head back to the boat.";
 
         Bye = "You finish your delivery.";
@@ -1281,6 +1295,8 @@ public:
     {
         ID = 31;
 
+        Image = "images/vr-logo.png";
+
         Text = "Your steady run keeps you out of their clutches but they are on horses which will not tire so easily.  They do not seem like giving up. You run on desperately, hoping to find somewhere to evade them.";
 
         Choices.clear();
@@ -1297,6 +1313,8 @@ public:
     Story032()
     {
         ID = 32;
+
+        Image = "images/silver-eel-tavern.png";
 
         Text = "The spell of Visceral Pang should suffice to bring the landlord to his knees and force him to do your bidding. You mouth the arcane words and twirl your fingers in the patterns that bring magic to life. The spell catches and the landlord's face grows pale, then very flushed. He makes a rush for the latrines but the pain pulls him up short and he doubles over in agony.\n\n\"You will serve a Judain, my good man, and be quick about it,\" you say, looking around to gauge the reaction of the other drinkers.\n\nThe two women are looking at you in a new light. The pipe smoker is tapping out his pipe. Lucie looks shocked. The eyes of the tall stranger transfix you with a piercing stare. The gang of four are all fingering hidden weapons and checking their escape routes.\n\n\"A pot of your finest ale, barkeep,\" you say, letting the spell go. The landlord straightens up slowly, holding his stomach and reaches for an ale pot.";
 
@@ -1375,6 +1393,8 @@ public:
     {
         ID = 35;
 
+        Image = "images/vr-logo.png";
+
         Text = "Your own opinion is that the myth of the return of Harakadnezzar is only a story invented to deter would-be grave robbers from rifling in the more recently consecrated tombs. The story of Hate, however, is well known to all folklorists. Hate rises up in the foundations of ancient and decadent cities, swallowing the proud, wicked and greedy into its ravening maw. This manifestation of the force of Hate was last heard of in the Old Empire city of Kush, a thousand years ago. There is nothing left of Kush now. The greatest and most powerful city the world has ever seen has become a giant dustbowl in the grasslands.";
 
         Bye = "You thank the landlord and leave him to join Lucie and the stranger.";
@@ -1393,6 +1413,8 @@ public:
     Story036()
     {
         ID = 36;
+
+        Image = "images/vr-logo.png";
 
         Text = "You fling your KNIFE at the nearest guard. It strikes him in the shoulder. He yells in pain and drops his SWORD. One of the other guards spots you. \"Judain scum! Come here and take your punishment!\" You dash off down the street with the guards in pursuit. They cannot keep up with you in their heavy armour and you soon lose them.";
 
@@ -1468,6 +1490,8 @@ public:
     {
         ID = 39;
 
+        Image = "images/vr-logo.png";
+
         Text = "The Overlord's men aren't expecting you, so no one notices when your first KNIFE embeds itself into the back of one of the guards. He collapses to the ground with a scream. The guards turn around to face you. Some run at you, but Talmai picks up one of the dead guards' SWORDs and rushes at her opponents, striking one in the back. Attacked on both sides, the remaining guards flee the scene rather than fight.";
 
         Bye = "Talmai approaches you.";
@@ -1515,6 +1539,8 @@ public:
     Story041()
     {
         ID = 41;
+
+        Image = "images/vr-logo.png";
 
         Text = "The inner ring has a large hall where all the prisoners eat, whilst being watched by guards. Its design is called the Panopticon and it allows the prisoners to be watched from all places. In the centre of the hall is a giant blob of purple flesh and tentacles, pulsating slowly, as if it is resting. A score of guards can be seen partly submerged in the flesh. Upon seeing you, they give low moans of despair. This has been the work of but a single night for Hate, and what is worse, is that the blobs seem to be getting bigger.\n\nMost of the men have only been sucked in as far as both elbows, or knees, but they are all exhausted by their fruitless struggle to break free. Unable any longer to resist the pull of Hate they are being submerged in the purple morass inch by inch.\n\nMost of the men are wailing out repentance for the atrocities they have committed on the poor prisoners of Grond.";
 
@@ -1611,6 +1637,8 @@ public:
     Story046()
     {
         ID = 46;
+
+        Image = "images/vr-logo.png";
 
         Text = "Your senses have been honed razor-keen by your many escapades on the hazy edge of the law. When a thief treads lightly on the steps leading down to your cellar hideout, you are instantly awake and on your feet. A figure stands in its shadows. Seeing that you are awake, the intruder turns and bolts away. You chase him up the street, but he is already out of sight. Your only impression was of a small build and very quick reflexes. You must be on the look-out for such a person.";
 
@@ -1802,6 +1830,8 @@ public:
     {
         ID = 54;
 
+        Image = "images/vr-logo.png";
+
         Text = "You leap between the Judain and the guards \"Have mercy on these poor dogs,\" you say \"Do not fall to the depths of their depravity. Is it not the fate they have reserved for you? Are we not nobler than they? Let us show them our superiority by sparing them, that their very existence may be a testament to our nobility.\"\n\nHowever, a large Judain carrying a poker and bearing all kinds of scars and wounds walks up to you and towers over you, his green eyes staring into yours. \"I suffered under these scumbags for weeks. Don't tell me to leave them alone, not until you have suffered as I have. Now get out of my way before I pummel you too.\"\n\nThe whole prison stares at you, watching what you do next.";
 
         Choices.clear();
@@ -1875,6 +1905,8 @@ public:
     Story057()
     {
         ID = 57;
+
+        Image = "images/vr-logo.png";
 
         Text = "As you approach the hut, the door is flung open to reveal an old woman dressed in a simple green tunic. She has a kindly expression on her face \"So lovely to see you. Do come in for some tea.\" You enter the hut to find it filled with plants of all kinds. The woman puts a kettle over a fireplace to make the tea. Soon, you are drinking a rich herbal liquid as you chat. It turns out that the old woman is a healer. She is very concerned to hear about the persecution of the Judain and offers her sympathy for your plight. Then her face lights up \"Could you help me, young one? There is a herb that grows a few miles towards the great forest. You would get it a lot faster than I could and I could make you a concoction to help you out.\"";
 
@@ -2134,6 +2166,8 @@ public:
     {
         ID = 68;
 
+        Image = "images/vr-logo.png";
+
         Text = "You carry on up the road until you come to a fork.";
 
         Choices.clear();
@@ -2150,6 +2184,8 @@ public:
     Story069()
     {
         ID = 69;
+
+        Image = "images/vr-logo.png";
 
         Text = "You PAID 100 gleenars.\n\nAhab explodes at this paltry sum.\n\n\"A fool could get a better price for such a gem! I know what you've been up to, you thief. Well, I'll teach you to steal from the Sycaari!\"";
 
@@ -2278,6 +2314,8 @@ public:
     {
         ID = 73;
 
+        Image = "images/vr-logo.png";
+
         Text = "On your travels, you come across a small hillock which raises your suspicions. There's something wrong with it, but you can't quite put your finger on it. Then it hits you it has a very unnatural shape. You have seen something like this before. Ancient structures become overgrown forming strange landmarks in the terrain. After some digging, you find an opening into the structure.\n\nYou enter it to find the remains of Judain shrine. Marble arches stand in it covered in moss and mud. This holy place has not been visited for many a year. However, as you stand in it, you feel a sense of peace and serenity wash over you. Then you feel something roll against your foot. You look down to see a beautiful IVORY POMEGRANATE inscribed with Judain prayers. Such an item would have adorned a high priest's sceptre. When you pick it up, you feel a tingle of power. This object contains divine essence.\n\nYou may use the IVORY POMEGRANATE once to restore all lost Life Points (this does not destroy it, however). The POMEGRANATE may have other uses.";
 
         Bye = "Eventually, you leave the shrine.";
@@ -2301,6 +2339,8 @@ public:
     Story074()
     {
         ID = 74;
+
+        Image = "images/filler1.png";
 
         Text = "You sneak through the streets until you come to Tagil's house in the Old Quarter. You can tell where he lives as he has put the armour and helmets of several of the Overlord's men outside his house. None dare challenge him now. When you knock on the door. After a while, your start to hear the noise of several bolts being pulled back. The door opens to reveal Tagil. Despite being in his mid-fifties, he still sports a muscular frame and from the stories you have heard, he has lost none of his skill with age. He greets you and ushers you inside hastily. Once in the house, he serves you the last food he has half a stale loaf and some cheese. He eats the other half. As you eat you talk.\n\n\"It's lucky you came to see me today, young one. I'm leaving today.\"\n\n\"Why? You can handle yourself against the Overlord's men.\"\n\nTagil spits on the floor.\n\n\"Those amateurs? I could last against them for an eternity. It's just that they're not the worst thing in this city any more. I've seen huge purple blobs, trapping people like flies in syrup. I can't fight this thing. If you have any sense, you would leave to. Come with me.\"\n\n\"I have to stay and save my people.\" You reply.\n\n\"I won't argue. You've always been stubborn. I'll help you if you stay. I have been thinking of how to destroy this huge creature. You would need a weapon of magic and power. Then I remembered the Jade Warriors. These artificial creatures protect the Megiddo dynasty and carry swords sharper than any steel sword could be. I remember the legend that one of the swords was able to control these creatures.\"\n\nTagil tells you the legend of the Jade Warriors and how to control them. Tagil also offers you a SWORD and a KNIFE. You may take one or both of these.\n\nYou gained the codeword JADE.";
 
@@ -2329,6 +2369,8 @@ public:
     Story075()
     {
         ID = 75;
+
+        Image = "images/vr-logo.png";
 
         Text = "You ponder the landlord's words. Harakadnezzar created a mighty empire, but at the cost of tens of thousands of lives. The man slaughtered countless people in his quest for power before being assassinated by one of his closest advisors. If he has returned, then he could make the whole city suffer. Hate could also level the city. You have heard that in places of great decadence, Hate will be given form and grow into a huge unstoppable monster that will destroy everything in its path. This was the fate of the city of Kush. If Hate is growing under Godorno, then the whole city might be destroyed. Either of these creatures would be a grave threat to the city. How could you overcome them, you think? Lost in your thoughts, you reach for your mug of ale.";
 
@@ -2361,6 +2403,8 @@ public:
     Story076()
     {
         ID = 76;
+
+        Image = "images/vr-logo.png";
 
         Text = "\"Thank you. I don't have anything to my name, but you have given me some hope. Good luck. I hope to see you again.\"\n\nAnd with that, the man carries on up the road.";
 
@@ -2647,6 +2691,8 @@ public:
     {
         ID = 86;
 
+        Image = "images/vr-logo.png";
+
         Text = "As you approach the corpse, you hear a loud grunt and squeal. A huge boar bursts out from copse and charges at you. You have disturbed it and it sees you as a threat.";
 
         Choices.clear();
@@ -2859,6 +2905,8 @@ public:
     {
         ID = 93;
 
+        Image = "images/vr-logo.png";
+
         Text = "The cloud of dust is coming closer and when it is no more than a quarter of a mile away you begin to make out the figures of several horsemen. They are moving at a fast trot, faster than merchants or most other travellers. They could be brigands.";
 
         Choices.clear();
@@ -2938,6 +2986,8 @@ public:
     Story097()
     {
         ID = 97;
+
+        Image = "images/vr-logo.png";
 
         Text = "The bandits eventually catch up with you, where they surround you with their horses. Grinning, they dismount and, at sword point, strip you of all of your POSSESSIONS, leaving you with nothing before riding off back to their camp. There is much mirth at your plight.\n\nIt is obvious that these men will forget about you as soon as you are out of sight, just another victim on the road. At least they haven't harmed you.";
 
@@ -3058,6 +3108,8 @@ public:
     {
         ID = 102;
 
+        Image = "images/vr-logo.png";
+
         Text = "The door leads to more stairs up, which you climb. Eventually, you come to another door which you open onto an oval room. There is no door here, but one of the walls is covered with a tapestry and the other has a single arrow slit. You look through the arrow slit and see Godorno beneath you. So far from the streets, you could imagine it as a peaceful city. Then you approach the tapestry and look at it. The pictures on it depict the twelve labours of Coronus. As you look at it, the floor spins and you are shot backward through the tapestry into another room.\n\nYou are standing on a stone block, about three feet off the floor. There is another stone block about six feet away, near a door. There is nothing to show how you came through the wall behind you and no way of return. The floor of the room is submerged under a living carpet of orange and black garter snakes. It is too far to jump to the nearest platform above the snakes, but there is a wooden beam between the walls above you. If you had something to tie to it, you could swing across the room.";
 
         Choices.clear();
@@ -3105,6 +3157,8 @@ public:
     Story104()
     {
         ID = 104;
+
+        Image = "images/filler1.png";
 
         Text = "With all the thieves and soldiers in this area, you decide to flee for your own survival.\n\nYou sneak through the alleys, avoiding anyone who walks by until you get back to your hovel in Bumble Row.";
 
@@ -3389,6 +3443,8 @@ public:
     {
         ID = 115;
 
+        Image = "images/vr-logo.png";
+
         Text = "As you walk away from the cellar, you think about your task. Grond is full of captured Judain and other political prisoners detained to await the mercy of the Overlord's torturers. The prison is extremely well guarded and secure. You cannot succeed at such an ambitious mission alone, and Ahab is unwilling to put any more Sycaari at further risk. That is why he's sent you, who he does not see as entirely loyal to the cause. You are going to need the help of an expert rogue.\n\nOn the other hand, you wonder if you should do this at all. Ahab sees you as expendable. He is simply sending you on missions that he does not want to risk his cronies with. And after seeing his level of gratitude after you stole the diamond for him, you doubt you will get any thanks from him. He is also completely ignoring the monsters that are stalking the street, which may be a bigger threat to the Judain's survival than the Overlord. Maybe it would be better to strike out alone.";
 
         Choices.clear();
@@ -3457,6 +3513,8 @@ public:
     Story118()
     {
         ID = 118;
+
+        Image = "images/vr-logo.png";
 
         Text = "You swing the ROPE and GRAPPLE and aim for the wooden beam. You latch on with your first go. It is then a case for you to simply swing across the room, sailing over the angry, hissing snakes, to the other stone block. You land there gently and walk through the door, congratulating yourself.";
 
@@ -3571,6 +3629,8 @@ public:
     {
         ID = 123;
 
+        Image = "images/vr-logo.png";
+
         Text = "The brigands come to a halt before you.\n\n\"I wish to join you!\", you shout.\n\n\"Oh yeah? We don't let any old freeloader join our band,\" shouts a tall bald, scarred brigand. He dismounts from his horse, draws a serrated sword and approaches you, grinning like a wolf.";
 
         Choices.clear();
@@ -3609,6 +3669,8 @@ public:
     Story124()
     {
         ID = 124;
+
+        Image = "images/vr-logo.png";
 
         Text = "The green light is burning you both inside and out. It is as if your blood is boiling and your skin is charring.";
 
@@ -3730,6 +3792,8 @@ public:
     {
         ID = 127;
 
+        Image = "images/vr-logo.png";
+
         Text = "Throwing caution to the wind, you continue alone on the road until you see a cloud of smoke or dust up ahead.";
 
         Choices.clear();
@@ -3780,6 +3844,287 @@ public:
     }
 
     int Continue(Character::Base &player) { return 523; }
+};
+
+class Story130 : public Story::Base
+{
+public:
+    Story130()
+    {
+        ID = 130;
+
+        Image = "images/giant-spider.png";
+
+        Text = "As you run across the room, the spider lowers itself down to crush you, but you are too fast for it. You slam into the door and yank the handle. Thankfully, the door is not locked or trapped and it opens normally. You run through the door just as the spider lands on the floor, but it can't pursue you through such a small space. You run down a corridor and down some spiral steps that seem to go on forever.";
+
+        Bye = "Eventually you reach the bottom of the stairs where there is a door that exits the tower.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 252; }
+};
+
+class Story131 : public Story::Base
+{
+public:
+    Story131()
+    {
+        ID = 131;
+
+        Image = "images/vr-logo.png";
+
+        Text = "You draw your SWORD with a flourish and advance steadily on Skakshi. Desperately, he throws his knife at you. However, you are prepared for this and strike it out of the way with the SWORD. The landlord throws him a spiked club with which to defend himself. You can see by the way he hefts it he knows how to use it to pulp brains. Your SWORD gives you an advantage over his rude weapon, but you will still have to be careful.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::HAS_SKILL(player, Skill::Type::SWORDPLAY))
+        {
+            return 234;
+        }
+        else
+        {
+            return 543;
+        }
+    }
+};
+
+class Story132 : public Story::Base
+{
+public:
+    Story132()
+    {
+        ID = 132;
+
+        Image = "images/vr-logo.png";
+
+        Text = "Tyutchev looks at you insolently. His direct stare makes you feel very uncomfortable. He has challenged many a poor fellow with a look like this, and most of them didn't live to tell the tale. Now he says \"So a Judain comes ready for the slaughter! It's hardly worth the bother of collecting the ten gleenar's reward, but then there is the pleasure of killing you.\"\n\nHe speaks as though you were a slimebeast that had crawled out from under a stone. He draws his sword, a great one-and-a-half-hander, which he wields with magnificent ease and power, as if it were a toothpick. It thrums through the air as he prepares to slaughter you. With a surprisingly quick movement for so large a man he manages to put himself between you and the only door. It doesn't look as if the latrine here backs onto the outside world so there is no escape that way.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS_ANY(player, {Item::SWORD, Item::JADE_WARRIORS_SWORD}))
+        {
+            return 409;
+        }
+        else
+        {
+            return 452;
+        }
+    }
+};
+
+class Story133 : public Story::Base
+{
+public:
+    Story133()
+    {
+        ID = 133;
+
+        Image = "images/vr-logo.png";
+
+        Text = "Ahab and his five lieutenants draw their knives and advance upon you.\n\n\"Wait! I did what I thought you wanted with the money!\", you shout. \"I bribed officials to let some Judain escape and to turn a blind eye to attacks! Wasn't that what you wanted?\"\n\nThe men stop their advance. Ahab questions you on who you bribed and for what. Your knowledge of the people of Godorno is enough to satisfy him.\n\nThey don't know whether to believe you, but, fortunately for you, it will take some time to find out one way or the other.\n\n\"You can stay for now.\" Says Ahab \"But any more sign of funny business from you and you get the knife.\"";
+
+        Bye = "He motions to a door and you walk through to find a room covered in straw. People are asleep on the floor and you join them.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 349; }
+};
+
+class Story134 : public Story::Base
+{
+public:
+    Story134()
+    {
+        ID = 134;
+
+        Image = "images/vr-logo.png";
+
+        Text = "Ahab snatches the money off you and smiles, bearing his teeth. You see his green eyes glitter with greed.\n\n\"You have done well. I guess we could repay you for your help.\"\n\nOne of Ahab's men goes away. When he returns, he has two pots of HEALING SALVE. Each one will restore 1 Life Point.\n\n\"Have some rest for now.\" Says Ahab \"I have big plans for you in the morning.\"";
+
+        Bye = "Ahab motions to a door nearby. You walk through it to find several people sleeping on a straw covered floor. You join them.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Take = {Item::HEALING_SALVE, Item::HEALING_SALVE};
+
+        Limit = 2;
+    }
+
+    int Continue(Character::Base &player) { return 349; }
+};
+
+class Story135 : public Story::Base
+{
+public:
+    Story135()
+    {
+        ID = 135;
+
+        Image = "images/vr-logo.png";
+
+        Text = "Eventually, you come to an octagonal room with several Judain runes inscribed on the walls. Rocks and other debris litter the floor. As you sift through it, you find the clay parts of the golem, but they have been broken, probably by falling rocks. You curse. Then you see something different. It is a small marble capsule, engraved with several arcane runes. You remember that this capsule was put in the golem's mouth to bring it to life. As you pick it up, you feel the magic of the capsule flow into you before it crumbles to dust.\n\nYou MAXIMUM Life Points is INCREASED by 3. You GAIN 3 Life Points.";
+
+        Bye = "Feeling prepared, you return to the synagogue and set off to find a safe place for the night.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.MAX_LIFE_LIMIT += 3;
+
+        Character::GAIN_LIFE(player, 3);
+    }
+
+    int Continue(Character::Base &player) { return 432; }
+};
+
+class Story136 : public Story::Base
+{
+public:
+    Story136()
+    {
+        ID = 136;
+
+        Image = "images/jade-warriors.png";
+
+        Text = "You dart in to attack the first of the Jade Warriors. You fight well; your sword is an arcing blaze of light, but though it rings loudly against the jade bodies of your adversaries, they are not dinted. Their heavy blows break down your guard and their blades are terribly sharp, as you find to your cost when one bites into your shoulder.\n\nYou LOSE 2 Life Points.";
+
+        Bye = "You flee the tomb before the Jade Warriors overwhelm you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.MAX_LIFE_LIMIT += 3;
+
+        Character::GAIN_LIFE(player, 3);
+    }
+
+    int Continue(Character::Base &player) { return 83; }
+};
+
+class Story137 : public Story::Base
+{
+public:
+    Story137()
+    {
+        ID = 137;
+
+        Image = "images/vr-logo.png";
+
+        Text = "You walk up the road for an hour until you come to an inn. It is getting dark now and the lights and the sound of merriment inside seem warm and welcoming.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Enter the inn", 377));
+        Choices.push_back(Choice::Base("Carry on up the road", 68));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story138 : public Story::Base
+{
+public:
+    Story138()
+    {
+        ID = 138;
+
+        Image = "images/filler1.png";
+
+        Text = "You gained the codeword LEVAD.\n\nAhab is going too far. He is putting the lives of you and the other Sycaari in danger just to satisfy his lust for revenge. He will not forgive you for deserting him now, however. You will have to survive whilst being sought after by both the Overlord's men and the Sycaari. However, you have survived in Godorno for many years and you are confident that you can avoid both. You traipse through the city, spending time looking for a suitable hideout. Eventually, you come to a hovel on Bumble Row where, exhausted, you throw yourself onto a pallet and fall into a fitful sleep.\n\nWhen you awake the next morning, you think about whether you have any allies left in the city. There may be some Judain who are still able to survive here whilst not being part of the Sycaari. You think of the mentors that Caiaphas set you up with when he noticed your potential. These great Judain recognised your talents and honed them. They might still be in the city. On the other hand, you might need more people if Hate is getting so powerful. It might be worth using a gondola to scour the city to find other lonely Judain to recruit to your cause of stopping Hate.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Seek out one of your mentors", 371));
+        Choices.push_back(Choice::Base("Scour the city by barge", 564));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::LEVAD});
+    }
+};
+
+class Story139 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story139()
+    {
+        ID = 139;
+
+        Image = "images/vr-logo.png";
+
+        Bye = "Now that you have the HERB, you return to the old woman.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You are too close to outrun the boar, so you face it. It is a fierce and strong creature intent on goring you to death. It is a desperate battle.\n\n";
+
+        auto DAMAGE = -3;
+
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            DAMAGE = -1;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -2;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Points.";
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nOnce you have slain the boar, you collect some of the HERB that you find in the corpse.";
+
+            Character::GET_ITEMS(player, {Item::HERB});
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 237; }
 };
 
 auto customShop = CustomShop();
@@ -3915,6 +4260,16 @@ auto story126 = Story126();
 auto story127 = Story127();
 auto story128 = Story128();
 auto story129 = Story129();
+auto story130 = Story130();
+auto story131 = Story131();
+auto story132 = Story132();
+auto story133 = Story133();
+auto story134 = Story134();
+auto story135 = Story135();
+auto story136 = Story136();
+auto story137 = Story137();
+auto story138 = Story138();
+auto story139 = Story139();
 
 void InitializeStories()
 {
@@ -3932,7 +4287,8 @@ void InitializeStories()
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
-        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129};
+        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
+        &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139};
 }
 
 #endif
