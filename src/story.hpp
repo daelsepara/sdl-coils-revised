@@ -2997,6 +2997,268 @@ public:
     int Continue(Character::Base &player) { return 505; }
 };
 
+class Story100 : public Story::Base
+{
+public:
+    Story100()
+    {
+        ID = 100;
+
+        Image = "images/filler2.png";
+
+        Text = "Most of the citizens flee, but Talmai and her band stand firm. They draw their weapons and charge at the beast. In response, Hate's eyes glow green and each of you is bathed in green light. You feel your skin go prickly and your body get hotter as it is assaulted by Hate's magic.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::IVORY_POMEGRANATE}))
+        {
+            return 434;
+        }
+        else
+        {
+            return 189;
+        }
+    }
+};
+
+class Story101 : public Story::Base
+{
+public:
+    Story101()
+    {
+        ID = 101;
+
+        Text = "Not confident with your weapon, you keep your distance and try to parry his first blow. Tyutchev's sword lashes out, smashing your parry aside. The blade cuts into your breast, just above the heart.\n\nYou LOSE 6 Life Points.";
+
+        Bye = "Tyutchev gets ready to deliver the coup de gras.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -6);
+    }
+
+    int Continue(Character::Base &player) { return 427; }
+};
+
+class Story102 : public Story::Base
+{
+public:
+    Story102()
+    {
+        ID = 102;
+
+        Text = "The door leads to more stairs up, which you climb. Eventually, you come to another door which you open onto an oval room. There is no door here, but one of the walls is covered with a tapestry and the other has a single arrow slit. You look through the arrow slit and see Godorno beneath you. So far from the streets, you could imagine it as a peaceful city. Then you approach the tapestry and look at it. The pictures on it depict the twelve labours of Coronus. As you look at it, the floor spins and you are shot backward through the tapestry into another room.\n\nYou are standing on a stone block, about three feet off the floor. There is another stone block about six feet away, near a door. There is nothing to show how you came through the wall behind you and no way of return. The floor of the room is submerged under a living carpet of orange and black garter snakes. It is too far to jump to the nearest platform above the snakes, but there is a wooden beam between the walls above you. If you had something to tie to it, you could swing across the room.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use a ROPE and a GRAPPLE to grapple the beam and swing across the room over the snakes", 118, {Item::ROPE, Item::GRAPPLE}));
+        Choices.push_back(Choice::Base("[CHARMS] Use an AMULET", 308, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Silver Shield to push the snakes aside", 454, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("Dash for it through the mass of snakes", 94));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story103 : public Story::Base
+{
+public:
+    Story103()
+    {
+        ID = 103;
+
+        Image = "images/jade-warriors.png";
+
+        Text = "You quickly ignite the INCENSE, and smoke billows forth from the CENSER. The Jade Warriors are swoon swathed in the roiling white clouds, and you grope your way through the smoke towards them. One of the warriors looms towards you, the light gleaming dully off its facets and its sword is working mechanically. You recoil in fright but it lumbers past making elaborate passes in the air, as if engaged in a display of ancient style of swordplay. The others are also lurching about at random. The smoke seems to have scrambled their senses. Each is cutting and thrusting at the air around it, but they seem oblivious to you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::JADE}))
+        {
+            return 72;
+        }
+        else
+        {
+            return 345;
+        }
+    }
+};
+
+class Story104 : public Story::Base
+{
+public:
+    Story104()
+    {
+        ID = 104;
+
+        Text = "With all the thieves and soldiers in this area, you decide to flee for your own survival.\n\nYou sneak through the alleys, avoiding anyone who walks by until you get back to your hovel in Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 179; }
+};
+
+class Story105 : public Story::Base
+{
+public:
+    Story105()
+    {
+        ID = 105;
+
+        Image = "images/filler2.png";
+
+        Text = "Almost as soon as the tentacle wraps around you, you feel it unwind from you. For some reason, Hate can't stand the touch of you. Not wishing to push your luck, you run as fast as you can from the worm. As you do, you feel some warm viscous slime strike you in the back. It smells disgusting, but it doesn't feel like it does any harm, so you run on without checking for injury.";
+
+        Bye = "You are glad to be alive.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 108; }
+};
+
+class Story106 : public Story::Base
+{
+public:
+    Story106()
+    {
+        ID = 106;
+
+        Image = "images/diamond.png";
+
+        Text = "Seeking out some of your unsavoury underworld contacts, you manage to get an offer for the DIAMOND. However, compared to what it is worth, it is a paltry sum. The fence also knows that he is offering a very low price \"You're lucky I deal with you at all these days. You know the trouble I could get into for talking to a Judain?\"\n\n\"Not as much trouble as if that Judain told the Overlord's men about you handling the Overlord's own DIAMOND.\" you say with an ingenious smile.\n\nHe curses under his breath, but finally agrees to pay you 500 gleenars for the DIAMOND.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sell the DIAMOND for 500 gleenars", -106, Choice::Type::SELL, {Item::DIAMOND}, 500));
+        Choices.push_back(Choice::Base("Refuse the offer for the DIAMOND", -106));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Event106 : public Story::Base
+{
+public:
+    Event106()
+    {
+        ID = -106;
+
+        Title = "The Coils of Hate (Revised): 106";
+
+        Image = "images/diamond.png";
+
+        Text = "On the way back to the others, you realise that you are near the shop of Tarkamandir, sage and friend. He always has a stock of useful items that will help you in your quest.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+        Choices.push_back(Choice::Base("Visit Tarkamandir", 89));
+        Choices.push_back(Choice::Base("Return to Ahab", 220));
+
+        if (!Character::VERIFY_ITEMS(player, {Item::Type::DIAMOND}) && player.Money >= 500)
+        {
+            Choices.push_back(Choice::Base("Keep the money for yourself and go it alone, betraying the Sycaari", 173));
+        }
+        else
+        {
+            Choices.push_back(Choice::Base("Go it alone, betraying the Sycaari", 173));
+        }
+    }
+};
+
+class Story107 : public Story::Base
+{
+public:
+    Story107()
+    {
+        ID = 107;
+
+        Image = "images/mob.png";
+
+        Text = "\"I am one of the Overlord's paid informers,\" you shout with a commanding air. \"Follow me, I will take you to the nests of the Judain scum. Follow me.\" You turn your back and set out towards the fruit market. \"Come, I will show you where three Judain spies and embezzlers are hiding out.\"\n\nThe mob follows eagerly, crying for Judain blood. One of them asks how they are to know you are the Overlord's informer. You start to run, calling \"Hurry, or we may be too late. If word reaches them before us they will flee the roost.\"\n\nYou run fast and the others can hardly keep up. Entering the fruit market you dive into a throng of people who are picking over a mound of rotting fruit that has been piled up at the side of the road. As you make your escape into a narrow side street, you hear the crowd calling for your blood. It is not safe to remain in the city at the moment.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave by the usual means, the main gate to the trade road", 344));
+        Choices.push_back(Choice::Base("Stow away on a barge", 522));
+        Choices.push_back(Choice::Base("Risk staying in the city and visiting one of your friends before you leave", 467));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story108 : public Story::Base
+{
+public:
+    Story108()
+    {
+        ID = 108;
+
+        Image = "images/filler2.png";
+
+        Text = "You have escaped the giant worm that Hate has become, but you are seriously worried now. Is there anything or anyone in Godorno that has the power to stand up to such a creature? It may not be the only one of its kind, either, as you know from rumours that smaller blobs of Hate stalk the city. You are more despondent than ever about saving yourself, let alone the Judain or Godorno, but you decide that you must fight on regardless and do what you can.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::SEAFARING))
+        {
+            return 122;
+        }
+        else
+        {
+            return 16;
+        }
+    }
+};
+
+class Story109 : public Story::Base
+{
+public:
+    Story109()
+    {
+        ID = 109;
+
+        Image = "images/giant-spider.png";
+
+        Text = "However, your blow is not enough to kill the spider. Despite being wounded, it still writhes around in anger, eager to sink its teeth into you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use another KNIFE", 533, {Item::KNIFE}));
+        Choices.push_back(Choice::Base("[SPELLS] Use a WAND", 149, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Throw the JADE WARRIOR's SWORD at the giant spider", 56, {Item::JADE_WARRIORS_SWORD}));
+        Choices.push_back(Choice::Base("Dash beneath the spider to steal the JEWEL", 399));
+        Choices.push_back(Choice::Base("Dash for the door", 130));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -3099,10 +3361,22 @@ auto story096 = Story096();
 auto story097 = Story097();
 auto story098 = Story098();
 auto story099 = Story099();
+auto story100 = Story100();
+auto story101 = Story101();
+auto story102 = Story102();
+auto story103 = Story103();
+auto story104 = Story104();
+auto story105 = Story105();
+auto story106 = Story106();
+auto event106 = Event106();
+auto story107 = Story107();
+auto story108 = Story108();
+auto story109 = Story109();
 
 void InitializeStories()
 {
     Stories = {
+        &event106,
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
@@ -3112,7 +3386,8 @@ void InitializeStories()
         &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
-        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099};
+        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
+        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109};
 }
 
 #endif

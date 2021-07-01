@@ -4151,13 +4151,41 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                             }
                             else
                             {
-                                if (Item::VERIFY(player.Items, story->Choices[current].Items[0]))
+                                bool loaded = true;
+                                int weapons = 0;
+
+                                for (auto i = 0; i < story->Choices[current].Items.size(); i++)
                                 {
-                                    message = "The weapon you are carrying is not loaded!";
+                                    // Check if items (weapons) are loaded
+                                    if (Item::VERIFY(player.Items, story->Choices[current].Items[i]))
+                                    {
+                                        weapons++;
+
+                                        loaded = false;
+                                    }
+                                }
+
+                                if (!loaded && weapons > 0)
+                                {
+                                    if (weapons > 1)
+                                    {
+                                        message = "The weapons you are carrying are not loaded!";
+                                    }
+                                    else
+                                    {
+                                        message = "The weapon you are carrying is not loaded!";
+                                    }
                                 }
                                 else
                                 {
-                                    message = "You do not have the required item!";
+                                    if (story->Choices[current].Items.size() > 1)
+                                    {
+                                        message = "You do not have the required items!";
+                                    }
+                                    else
+                                    {
+                                        message = "You do not have the required item!";
+                                    }
                                 }
 
                                 start_ticks = SDL_GetTicks();
