@@ -4374,6 +4374,366 @@ public:
     int Continue(Character::Base &player) { return 223; }
 };
 
+class Story150 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story150()
+    {
+        ID = 150;
+
+        Bye = "You go to another house and hide in its cellar so that you can get some sleep.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "As you approach the house, a pack of rats scurry from underneath the wooden door and run towards you. You jump out of their way as they rush past you. You stop, unsure that you want to stay in this house if it is infested.\n\nThen there is a crash as the door before you flies open. Before you stands a skinny, ragged man, screaming his lungs out. His green eyes are wild and show nothing but rage and hate. Upon seeing you, he charges at you, his fists raised, ready to beat you to a pulp. You are thankful that the rats appeared when they did. If you hadn't stopped, he may have been able to strike you before you could defend yourself.\n\n";
+
+        auto DAMAGE = -3;
+
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            DAMAGE = -1;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -2;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Point(s).";
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou inspect the body. The man's skin is covered in purple pustules. This must be a victim of theplague you heard of. If so, you offer a quick prayer that you never go that way. The man had been reduced to little more than a rabid animal, driven only by a need to kill. His death was a mercy.\n\nYou do not want to touch this man's flesh, so you kick his body back into the ruined house and down into a cellar. His body disappears into the darkness and you hear a thump as it hits the ground. No one will be finding him for a while.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 534; }
+};
+
+class Story151 : public Story::Base
+{
+public:
+    Story151()
+    {
+        ID = 151;
+
+        Image = "images/filler1.png";
+
+        Text = "You arrive back at the jeweller's house in the dead of night. Clouds cover the moon like grave soil on the face of a corpse. Underfoot, the cobblestones glisten blackly. A cat prowls in the shadows across the street, making barely less noise than you. You have always prided yourself on your stealth and cool nerve, but more useful than either of these is your mastery of magic. Murmering the antique rhyme, you cast a spell that will keep all of the house's occupants asleep by making their dreams more vivid than reality itself. Even an earthquake could not rouse them before dawn. Confident that nothing could go wrong now, you force the door and enter.\n\nThe interior of the shop is dark. You see no reason not to light the lamps; it would make your job easier and any passer-by would just assume the jeweller is working late. A hasty but thorough search of the shop reveals no sign of the diamond, but that is only to be expected. Probably it is kept in a treasure chest. Stepping over a slumbering guard dog, you start up the stairs.\n\nA floorboard creaks on the landing above. Startled, you look up to see a young soldier in the uniform of the Overlord's troops standing there. His face is ashen with fright, but he musters a brave semblance of self assurance as he calls: \"You there! You're under arrest!\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[THROWING] Throw a KNIFE", 348, Skill::Type::THROWING));
+        Choices.push_back(Choice::Base("Advance up the stairs to attack him", 557));
+        Choices.push_back(Choice::Base("Run out of the shop and give up", 52));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story152 : public Story::Base
+{
+public:
+    Story152()
+    {
+        ID = 152;
+
+        Image = "images/filler1.png";
+
+        Text = "As you think about what to do, the guard starts to walk up the jetty. As he does, he slips over and falls into the water with a splash. A minute later, he crawls back onto the docks, sopping wet. Deciding to go and change, he walks off away from the boat, leaving it unwatched.";
+
+        Bye = "You finish your delivery.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 270; }
+};
+
+class Story153 : public Story::Base
+{
+public:
+    Story153()
+    {
+        ID = 153;
+
+        Image = "images/vr-logo.png";
+
+        Text = "The towngate at Grond is a ten foot thick wall abutting the battlemented and turreted gatehouse. As the gates creak open you look into the bleak eastern courtyard. There is silence for a moment as you look at the grim grey stones that have witnessed the trials and tortures of so many. For fifteen hundred years, Grond has stood at the river mouth. Additions made in a new style every century or two, always in the same sombre hard grey stone, give it a chaotic air.\n\nFor centuries, the prison fortress has struck terror into the hearts of the good burghers of Godorno. Its architect, Falsaphio the Gifted, was walled in above the gatehouse keystone because the prison had cost more to build than he had promised.\n\nYou are standing beneath its remains.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 418; }
+};
+
+class Story154 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story154()
+    {
+        ID = 154;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The guards are so engrossed in tormenting the poor man, that they don't notice you creeping up on them. You are soon standing right behind one of them and plunge your blade right into the back of his neck. The man crumples to the floor. The other guards stop, surprise and shock upon their faces you take advantage of the situation and leap over the Judain, stabbing another one in the face. The third guard draws his sword and faces you. You are going to have to fight this one.\n\n";
+
+        auto DAMAGE = -2;
+
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            DAMAGE = 0;
+
+            PreText += "[SWORDPLAY] You fought well enough; you do not LOSE any Life Points.";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -1;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        if (DAMAGE < 0)
+        {
+            Character::GAIN_LIFE(player, DAMAGE);
+
+            PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Point(s).";
+        }
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou help the Judain up then decide whether to TAKE a SWORD from one of the guards.";
+        }
+
+        Take = {Item::SWORD};
+
+        Limit = 1;
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 417; }
+};
+
+class Story155 : public Story::Base
+{
+public:
+    Story155()
+    {
+        ID = 155;
+
+        Image = "images/diamond.png";
+
+        Text = "You have no difficulty, even in these troubled times, finding a foreign merchant who will give you 300 gleenars for the DIAMOND. You know it is worth much more than that, but the merchant shows you the gold in a sack. \"Others could promise more,\" he points out, \"but you might wait for ever to get your hands on the gold. I offer an immediate exchange.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sell the DIAMOND for 300 gleenars", -155, Choice::Type::SELL, {Item::DIAMOND}, 300));
+        Choices.push_back(Choice::Base("Refuse the offer for the DIAMOND", -155));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Event155 : public Story::Base
+{
+public:
+    Event155()
+    {
+        ID = -155;
+
+        Title = "The Coils of Hate (Revised): 155";
+
+        Image = "images/diamond.png";
+
+        Text = "On the way back to the others, you realise that you are near the shop of Tarkamandir, sage and friend. He always has a stock of useful items that will help you in your quest.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+        Choices.push_back(Choice::Base("Visit Tarkamandir", 89));
+        Choices.push_back(Choice::Base("Return to Ahab", 220));
+
+        if (!Character::VERIFY_ITEMS(player, {Item::Type::DIAMOND}) && player.Money >= 300)
+        {
+            Choices.push_back(Choice::Base("Keep the money for yourself, betray Ahab and the Sycaari and find your own way", 173));
+        }
+        else
+        {
+            Choices.push_back(Choice::Base("Find your own way", 173));
+        }
+    }
+};
+
+class Story156 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story156()
+    {
+        ID = 156;
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You manage to wriggle free of some of the tentacles, but more reach out for you. Others strike you, trying to knock you down, or weaken your struggles.\n\nYou LOSE 2 Life Points.";
+
+        Character::GAIN_LIFE(player, -2);
+
+        Choices.clear();
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nHow are you going to free yourself from Hate?";
+
+            if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+            {
+                Choices.push_back(Choice::Base("[SPELLS] Unleash a blast of energy at Hate as a last ditch effort", 494, Skill::Type::SPELLS));
+                Choices.push_back(Choice::Base("(SWORD) Slash at the tentacles", 24, Choice::Type::ANY_ITEM, {Item::SWORD, Item::JADE_WARRIORS_SWORD}));
+                Choices.push_back(Choice::Base("Thrust the torch at Hate and hope that it burns it", 217));
+            }
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 362; }
+};
+
+class Story157 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story157()
+    {
+        ID = 157;
+
+        Image = "images/vr-logo.png";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "";
+
+        if (!Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+            PreText = "You gained the codeword SATORI.\n\nThe freed guards have fled the prison.";
+        }
+        else
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+        }
+
+        if (PreText.length() > 0)
+        {
+            PreText += "\n\n";
+        }
+
+        PreText += "You hope that you are strong enough to face what horrors this prison has to free your fellow Judain.";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 376; }
+};
+
+class Story158 : public Story::Base
+{
+public:
+    Story158()
+    {
+        ID = 158;
+
+        Image = "images/diamond.png";
+
+        Text = "Your skill with the KNIFE allows you to aim for the spider's more vulnerable parts. It goes limp as it expires.\n\nYou step up to the frame and hold the JEWEL aloft in both hands. The room is suffused with a glow of power. At last you have a weapon with which to combat Hate.";
+
+        Bye = "You take the JEWEL and leave through the door.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::KNIFE});
+
+        Character::GET_UNIQUE_ITEMS(player, {Item::JEWEL_OF_SUNSET_FIRE});
+    }
+
+    int Continue(Character::Base &player) { return 223; }
+};
+
+class Story159 : public Story::Base
+{
+public:
+    Story159()
+    {
+        ID = 159;
+
+        Image = "images/filler2.png";
+
+        Text = "Traipsing through the tunnels, coming to dead ends and then heading back is exhausting and demoralising. You keep telling yourself that it is all for the good of the city. Then you round a corner and see a huge purple blob with writhing tentacles filling up the tunnel. You are close enough to see anguished faces of the lost souls through the translucent flesh. Before you can do anything, the tentacles lash out at you and the blob lurches forward.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::IVORY_POMEGRANATE}))
+        {
+            return 13;
+        }
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 13;
+        }
+        else
+        {
+            return 263;
+        }
+    }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -4527,11 +4887,22 @@ auto story146 = Story146();
 auto story147 = Story147();
 auto story148 = Story148();
 auto story149 = Story149();
+auto story150 = Story150();
+auto story151 = Story151();
+auto story152 = Story152();
+auto story153 = Story153();
+auto story154 = Story154();
+auto story155 = Story155();
+auto event155 = Event155();
+auto story156 = Story156();
+auto story157 = Story157();
+auto story158 = Story158();
+auto story159 = Story159();
 
 void InitializeStories()
 {
     Stories = {
-        &event106,
+        &event106, &event155,
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
@@ -4546,7 +4917,8 @@ void InitializeStories()
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
-        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149};
+        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
+        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159};
 }
 
 #endif
