@@ -1893,7 +1893,7 @@ public:
     {
         Character::LOSE_ITEMS(player, {Item::Type::JADE_WARRIORS_SWORD});
 
-        Character::GET_ITEMS(player, {Item::JEWEL_OF_SUNSET_FIRE});
+        Character::GET_UNIQUE_ITEMS(player, {Item::JEWEL_OF_SUNSET_FIRE});
     }
 
     int Continue(Character::Base &player) { return 223; }
@@ -2299,7 +2299,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        Character::GET_ITEMS(player, {Item::JADE_WARRIORS_SWORD});
+        Character::GET_UNIQUE_ITEMS(player, {Item::JADE_WARRIORS_SWORD});
 
         Character::GET_CODEWORDS(player, {Codeword::Type::HECATOMB});
     }
@@ -2327,7 +2327,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        Character::GET_ITEMS(player, {Item::IVORY_POMEGRANATE});
+        Character::GET_UNIQUE_ITEMS(player, {Item::IVORY_POMEGRANATE});
     }
 
     int Continue(Character::Base &player) { return 142; }
@@ -4022,9 +4022,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        player.MAX_LIFE_LIMIT += 3;
-
-        Character::GAIN_LIFE(player, 3);
+        Character::GAIN_LIFE(player, -2);
     }
 
     int Continue(Character::Base &player) { return 83; }
@@ -4125,6 +4123,255 @@ public:
     }
 
     int Continue(Character::Base &player) { return 237; }
+};
+
+class Story140 : public Story::Base
+{
+public:
+    Story140()
+    {
+        ID = 140;
+
+        Image = "images/filler1.png";
+
+        Text = "The next morning, you wake up. One of the Sycaari gives you half a loaf of bread and a bowl of broth.\n\n\"Eat up.\" He says \"Ahab wants to see you.\"\n\nAfter finishing your meal you go to the big room to find Ahab poring over his map alone. His green eyes are baggy. You wonder if he has actually left the table in the night.\n\n\"I am preparing us to strike at the Overlord's men and clean the streets up. You are key to this mission.\"\n\n\"Me?\"\n\n\"Yes. I want you to cut the head off the snake. I want you to kill the Overlord.\"\n\n\"Alone? Sneak into the heavily guarded palace, kill him and sneak out alive?\"\n\n\"No, of course not. You don't have to get out alive. I need every Sycaari I can find for this strike. You are new.\n\nYou're not needed for my plans on the street, so that is why I picked you. Anyway, security has become more lax recently.\"\n\n\"What about Hate?\" you ask.\n\n\"What?\"\n\n\"Hate has become a gigantic purple worm. It must have killed thousands of people and it is getting stronger every day. If we don't act soon, it will destroy the city and condemn all who live in it to an eternity of suffering. And there are plenty more smaller creatures in the streets.\"\n\n\"What of it? If Hate is killing the Overlord's men, then all the better. If this creature really is Hate, then we will be safe.\"\n\n\"But don't you remember Kush? It will level the city!\"\n\n\"Nonsense! Why are you trying to divert my energy away from the resistance? Are you with us or not?\" Growls Ahab.\n\nYou realise that there is nothing to gain from arguing here, so you say that you are with him.\n\n\"Good. Kill the Overlord. Return when you are finished.\"\n\nYou leave the cellar and think about Ahab's words. He seems to have no regards for your life, or even the lives of his fellow citizens. His quest for revenge against the Overlord seem to be his only aim. He almost seems a different person to the Ahab you remember from your youth. Do you want to still follow such a man? On the other hand, the Overlord is the cause for a lot of suffering in the city. If you kill him, his followers may see the error of their ways.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to assassinate the Overlord", 518));
+        Choices.push_back(Choice::Base("Abandon Ahab and the Sycaari and think of another way to save the city", 280));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story141 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story141()
+    {
+        ID = 141;
+
+        Image = "images/filler2.png";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "As you run, Hate's tentacles lash out at you and try to grab at you. You fight valiantly against the tentacles, wriggling free from the ones that grab at you. However, they still lash at you.\n\nYou LOSE 4 Life Points.";
+
+        Character::GAIN_LIFE(player, -4);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou manage to grab the JEWEL and hold it high so that it captures the sunlight again. As it does the beam of ruby light blasts Hate in the face. The monster starts to thrash around wildly again, but this time less vigorously than before. The power of the JEWEL is destroying Hate. But then the magical chains dissolve away, freeing the beast. The creature raises itself up to crush you in one last attempt to save itself. But before it can finish the deed, it merely collapses back onto the ground where it reared up, crashing through the stone to be swallowed up by the catacombs.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 51; }
+};
+
+class Story142 : public Story::Base
+{
+public:
+    Story142()
+    {
+        ID = 142;
+
+        Image = "images/filler1.png";
+
+        Text = "The next morning, you wake up to the sound of voices. You stand up just in time to see a group of five men walking in your direction. They are dressed in sturdy travelling clothes, but they do not seem to be brigands or the Overlord's men. Upon seeing you, they greet you and you talk.\n\nThese men are Judain who have also fled the city of Godorno. They tell you that it has gotten much worse.\n\n\"The day after you left, Caiaphas gave a sermon at the synagogue with a message of peace and tolerance. He said that the Sycaari's actions would only perpetuating an endless cycle of revenge and hate and that all must make an effort to live side by side. His words angered the crowd who started to riot and tear down the synagogue. They believe that the Overlord's agents were amongst the crowd and incited them to riot. The soldiers stood back and let the destruction happen. Caiaphas was murdered. Shortly after this, as if that wasn't bad enough, a plague broke out. It isn't like any disease I've seen. It reduces people to violent maniacs who have no control. If that's not bad enough people are disappearing at night, both Judain and non-Judain. Both the Overlord and the Sycaari blamed each other and both denied responsibility.\"\n\nThis news hits you hard. Caiaphas was like a father to you and he was murdered preaching what he believed. Now the citizens of Godorno are being picked off in the street. Godorno is more dangerous than ever, but if you return will you make a difference or will you become just another victim of the plague of hatred that has swept through the city?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Return to Godorno", 269));
+        Choices.push_back(Choice::Base("Travel with the Judain to Burg", 169));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story143 : public Story::Base
+{
+public:
+    Story143()
+    {
+        ID = 143;
+
+        Image = "images/vr-logo.png";
+
+        Text = "You seize the bridle and then leap into the saddle. The chestnut horse bucks, arches its back and makes a series of straight-legged jumps to shake you. You feel the horse's fear, so you give it free rein, hoping this will stop it buckling. It gallops off down the road towards the main gate. Soon, you see the wooden arches of the double gate ahead. People jump aside at the last minute from the path of your frothing mount.\n\nAs you approach the gate, the guards tumble out of the gatehouse to stop you. One tries to grab the bridle but misses and falls over. Another is winding his crossbow. As you gallop past, he lets fly, but you duck at the last minute and the bolt flies over you. As the horse gallops through the gate, you hear the twangs of crossbow strings ring out behind you. Deadly quarrels go shooting past your ears. The horse gallops on, leaving pursuit behind. The towers and minarets of Godorno are lost to view by the time the horse runs itself out.";
+
+        Bye = "You dismount it and carry on up the road on foot.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 516; }
+};
+
+class Story144 : public Story::Base
+{
+public:
+    Story144()
+    {
+        ID = 144;
+
+        Image = "images/vr-logo.png";
+
+        Text = "Whilst the man is ordering the drinks, you notice a piece of parchment sticking out of his back pocket. You quickly pick it and tell the man that you will be right back after a visit to the privy. Whilst you sit in the stinking cess pit, you read the parchment. It is an order from the Overlord that the head of a Judain will now get 20 gleenars. This man is a mercenary trying to find out if you are Judain. You return to the bar where the man starts asking you questions about your past. You tell him some story about your father being a tanner who was always in debt to a Judain lender.";
+
+        Bye = "The man is suspicious, but does not want to risk attacking a non-Judain so he eventually bids you goodnight.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 64; }
+};
+
+class Story145 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story145()
+    {
+        ID = 145;
+
+        Image = "images/filler2.png";
+
+        Bye = "Eventually, the tentacles retreat. It is time to begin your assault.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You pull out your SWORD and start hacking at the tentacles. Purple flesh flies everywhere, but they keep coming and start lashing at you and grabbing you.\n\n";
+
+        auto DAMAGE = -4;
+
+        if (Character::HAS_SKILL(player, Skill::Type::SWORDPLAY))
+        {
+            DAMAGE = -2;
+
+            PreText += "[SWORDPLAY] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Points.";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 559; }
+};
+
+class Story146 : public Story::Base
+{
+public:
+    Story146()
+    {
+        ID = 146;
+
+        Image = "images/filler1.png";
+
+        Text = "People turn to stare as you run past them and then take up the hue and cry as they are engulfed by the mob that pursues you. You run on, your lungs beginning to hurt. They are not closing but you don't know how much longer you can keep going like this. Every time you see a likely place to hide there seems to be someone else there. You turn a corner and run on in the direction of the main gate where the trade road enters the city. Behind you can hear the sound of hoofs on the cobbles. A sqaudron of the Overlord's cavalry is giving chase. Ahead there is a drinking house, outside is a horse tethered to a post.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Steal the horse", 340));
+        Choices.push_back(Choice::Base("Hide in the drinking house", 515));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story147 : public Story::Base
+{
+public:
+    Story147()
+    {
+        ID = 147;
+
+        Image = "images/filler1.png";
+
+        Text = "You return to the cellar where Ahab and his commanders are making their plans. You climb down the ladder and stand before him. He looks up from the map of Godorno and stops moving wooden figures around.\n\n\"Well?\" He demands.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Present him with a DIAMOND", 162, {Item::DIAMOND}));
+        Choices.push_back(Choice::Base("Present him with 100 gleenars", 69, Choice::Type::MONEY, 100));
+        Choices.push_back(Choice::Base("Present him with 200 gleenars", 426, Choice::Type::MONEY, 200));
+        Choices.push_back(Choice::Base("Present him with 300 gleenars", 134, Choice::Type::LOSE_MONEY, 300));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story148 : public Story::Base
+{
+public:
+    Story148()
+    {
+        ID = 148;
+
+        Image = "images/filler2.png";
+
+        Text = "Your allies are hacking at Hate, slicing many tentacles from it. Talmai and some others have managed to fight their way through the tentacles and are attacking its main body. Hate roars in pain and anger. This is your opportunity to throw the POMEGRANATE into its mouth.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::HAS_SKILL(player, Skill::Type::THROWING))
+        {
+            return 521;
+        }
+        else
+        {
+            return 126;
+        }
+    }
+};
+
+class Story149 : public Story::Base
+{
+public:
+    Story149()
+    {
+        ID = 149;
+
+        Image = "images/diamond.png";
+
+        Text = "You decide to summon multiple illusiory images of yourself. The giant spider rocks back and forth, seemingly transfixed by the apparitions of you which have appeared on either hand. You have indeed won more time. It seems the spider cannot make a choice between three absolutely identical targets. It is not clever enough to begin the process of elimination. You then blast it with an energy spell. A great crash echoes around the room and seems to shake the whole tower. It is followed by an explosion of spurting red flame which bathes the black spider in its punishing light. You feel giddy as the tower rocks. The spider recoils, its legs buckle under it and it struggles in vain to get up. The JEWEL OF SUNSET FIRE is yours for the taking. You make a dash for it before the gigantic spider, which is giving out a high keening hiss, can recover.";
+
+        Bye = "You then escape through the door.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_UNIQUE_ITEMS(player, {Item::JEWEL_OF_SUNSET_FIRE});
+    }
+
+    int Continue(Character::Base &player) { return 223; }
 };
 
 auto customShop = CustomShop();
@@ -4270,6 +4517,16 @@ auto story136 = Story136();
 auto story137 = Story137();
 auto story138 = Story138();
 auto story139 = Story139();
+auto story140 = Story140();
+auto story141 = Story141();
+auto story142 = Story142();
+auto story143 = Story143();
+auto story144 = Story144();
+auto story145 = Story145();
+auto story146 = Story146();
+auto story147 = Story147();
+auto story148 = Story148();
+auto story149 = Story149();
 
 void InitializeStories()
 {
@@ -4288,7 +4545,8 @@ void InitializeStories()
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
-        &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139};
+        &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
+        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149};
 }
 
 #endif
