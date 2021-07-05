@@ -1153,6 +1153,33 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
                                     used_up = true;
                                 }
                             }
+                            if (item.Type == Item::Type::HEALING_POTION)
+                            {
+                                if (player.Life == player.MAX_LIFE_LIMIT)
+                                {
+                                    message = "You are not INJURED!";
+
+                                    flash_color = intRD;
+
+                                    start_ticks = SDL_GetTicks();
+
+                                    flash_message = true;
+                                }
+                                else
+                                {
+                                    Character::GAIN_LIFE(player, 5);
+
+                                    message = "Your RECOVER 5 Life Points.";
+
+                                    flash_color = intLM;
+
+                                    start_ticks = SDL_GetTicks();
+
+                                    flash_message = true;
+
+                                    used_up = true;
+                                }
+                            }
                             else if (item.Type == Item::Type::IVORY_POMEGRANATE)
                             {
                                 if (player.Life == player.MAX_LIFE_LIMIT)

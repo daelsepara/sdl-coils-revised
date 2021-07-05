@@ -4734,6 +4734,270 @@ public:
     }
 };
 
+class Story160 : public Story::Base
+{
+public:
+    Story160()
+    {
+        ID = 160;
+
+        Image = "images/vr-logo.png";
+
+        Text = "You let the man go. Your brigands complain.\n\n\"What's the matter? Going soft?\" jeers one of them. You walk up to him and shut him up with an elbow to the face.\n\n\"What were going to do with him, eat him? He's not worth the time it takes to clean my sword. Now let's find some people with valuables.\"\n\nAt the end of the day, you return to your camp.\n\nThat night, you lie awake, thinking about the man's story. Caiaphas's death hit you like a gut punch. The rest of your people are hiding in fear of plague or the gallows. Surely you should do something?\n\nOn the other hand, what could you do? Would you be able to make a difference against the Overlord's hordes?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Slip out of the brigand camp and head back to Godorno", 312));
+        Choices.push_back(Choice::Base("Stay with the brigands", 487));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story161 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story161()
+    {
+        ID = 161;
+
+        Bye = "You gain victory, you step over the soldiers' bodies and snatch up the treasure chest, then hurry off into the night.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You throw your KNIFE at the lead guard. It strikes him in the head and he collapses to the floor. You then prepare to fight the other two.\n\nIt is a grim battle, fought almost in silence. The only sounds are frantic pants of breath and the scuff of quick footfalls as you manoeuvre back and forth across the room. You try to defeat these two as quickly as possible.\n\n";
+
+        auto DAMAGE = -3;
+
+        if (Character::VERIFY_SKILL_ANY_ITEMS(player, Skill::Type::SWORDPLAY, {Item::Type::SWORD, Item::Type::JADE_WARRIORS_SWORD}))
+        {
+            DAMAGE = 0;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -2;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        if (DAMAGE < 0)
+        {
+            Character::GAIN_LIFE(player, DAMAGE);
+
+            PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Point(s).";
+        }
+        else
+        {
+            PreText += "You wield your SWORD well and you do not lose any Life Points.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 241; }
+};
+
+class Story162 : public Story::Base
+{
+public:
+    Story162()
+    {
+        ID = 162;
+
+        Image = "images/diamond.png";
+
+        Text = "Ahab looks at your offering and snatches it from you.\n\n\"So now we have to fence it. You could have done that yourself, you know and saved us some work. Use your initiative next time. Well I suppose you got what I asked for, so you can still have our protection.\"\n\nAhab motions at a door nearby. You walk through it to find people resting on a straw covered floor. You do the same.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::DIAMOND});
+    }
+
+    int Continue(Character::Base &player) { return 349; }
+};
+
+class Story163 : public Story::Base
+{
+public:
+    Story163()
+    {
+        ID = 163;
+
+        Image = "images/vr-logo.png";
+
+        Text = "You remember a story you heard from your childhood. Long ago, when an anti Judain cult had risen up and had started killing them, a rabbi who was gifted in magic created a living creature from clay. He called this creature golem and it lay waste to the cult as it was impervious to their weapons and completely relentless. The story goes that once the cult was destroyed, the golem was dismantled and played under the synagogue, ready for the time when the Judain would once again be in mortal danger. You wonder if you could find the parts of the golem amid the rubble of the synagogue and use it to wreak havoc amongst the Overlord's men. However, getting to the synagogue will be dangerous as you will have to pass several patrols, and there might be more guards at the synagogue itself.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Find the golem", 484));
+        Choices.push_back(Choice::Base("Search for shelter", 432));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story164 : public Story::Base
+{
+public:
+    Story164()
+    {
+        ID = 164;
+
+        Image = "images/filler2.png";
+
+        Text = "You hesitate for a moment, unsure as to what to do. As you do, Hate's tentacles advance and thrash you. You fight them off, but you are badly wounded.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "You resolve to not let Hate trick you again.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 509; }
+};
+
+class Story165 : public Story::Base
+{
+public:
+    Story165()
+    {
+        ID = 165;
+
+        Image = "images/filler2.png";
+
+        Text = "Most of the people here have run away. Those who haven't simply stare blankly with shock and horror. Hate is real. It has been given physical form by the actions of the citizens of Godorno. Everyone has heard the tales of Kush. If left unchecked, Hate will grow strong enough to level the whole city. Saving the Judain from the Overlord may have to wait for a while. If no one addresses the Hate infesting the city then no one will survive, Judain or not.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::STREETWISE))
+        {
+            return 475;
+        }
+        else
+        {
+            return 79;
+        }
+    }
+};
+
+class Story166 : public Story::Base
+{
+public:
+    Story166()
+    {
+        ID = 166;
+
+        Image = "images/filler1.png";
+
+        Text = "You grab Ruth by the shoulder and pull her into the cess-pit at the back of the empty house. The smell is revolting, and you nearly throw up when you have to push your face down into the rancid ordure. The guards conduct a search of the vicinity and one of them pokes his head through the open doorway, but it does not occur to him that anyone could bring themselves to take cover where you have done. Indeed, the very art of concealment is to hide where your enemy does not think to look!\n\nWhen they have gone, you help Ruth out into the street. \"We look like two escaped lunatics,\" she says, grinning.\n\n\"It's nothing a few pails of water won't cure,\" you assure her. \"I can't say we'd be as easy to set right after a spell in the prison.\"";
+
+        Bye = "Ruth leads you to her house.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 411; }
+};
+
+class Story167 : public Story::Base
+{
+public:
+    Story167()
+    {
+        ID = 167;
+
+        Image = "images/jade-warriors.png";
+
+        Text = "You duck under the BLADE of one Jade warrior and manoeuvre behind another one. You throw yourself against its sword arm, wrenching the BLADE from its armoured grasp. By chance, you have chosen to attack the leader. When you hold the SWORD, you feel that there seems to be a mind inside it, prompting you to issue orders to the Jade Warriors. \"Obey Me!\", you cry out.\n\nTo your relief and amazement they line up before you and stand to attention. The warrior from whom you robbed the SWORD picks up another from behind an awning. The warriors are ready to do your bidding. They whirr and click as they follow you dutifully to the edge of the precincts of the burial chambers, and there they grind to a halt.\n\nThere is nothing you can do to move them further.";
+
+        Bye = "You then leave the burial chamber.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Take = {Item::JADE_WARRIORS_SWORD};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 354; }
+};
+
+class Story168 : public Story::Base
+{
+public:
+    Story168()
+    {
+        ID = 168;
+
+        Image = "images/filler3.png";
+
+        Text = "Wolf has travelled across most of the known world, yet he always enjoys a stay in Godorno after his travels. You find him at the docks preparing his ship to leave the city. Upon seeing you, he hugs you.\n\n\"I'm so glad to see you alive, my friend.\" He says \"You were always so helpful on our adventures together. Come for another one?\"\n\n\"I have come to see if you can help me save the city.\"\n\n\"You always had Caiaphas's conscience, didn't you? Well you are a braver one than I. I am leaving and I don't expect to return. Yesterday, I saw a giant purple pulsing mass pulling itself through the streets, snatching up any unfortunates who wandered too close. This place will be a ruin soon.\"\n\n\"Can you at least help me save the city?\"\n\nWolf laughs \"I can offer you some items that I have found on my travels. Let's see if they can help.\"\n\nWolf goes to his ship and comes back with several items. He offers all of the following to you: a HEALING POTION that RESTORES 5 Life Points when drunk, a BOOK OF LEGENDS which allows you to act as if you have the [FOLKLORE] skill, a MIRROR, a BLOCK OF INCENSE, a ROPE and GRAPPLE\n\nYou thank Wolf and wish him good luck.";
+
+        Bye = "You think about returning to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        // TODO: Implement BOOK OF MYTHS AND LEGENDS
+        Take = {Item::HEALING_SALVE, Item::BOOK_OF_MYTHS_AND_LEGENDS, Item::SILVER_MIRROR, Item::CENSER_OF_FRAGRANT_INCENSE, Item::ROPE, Item::GRAPPLE};
+
+        Limit = 6;
+    }
+
+    int Continue(Character::Base &player) { return 339; }
+};
+
+class Story169 : public Story::Base
+{
+public:
+    Story169()
+    {
+        ID = 169;
+
+        Text = "You join the Judain band and travel to Burg. Eventually, you reach the town where you go to an inn, eat a hot meal and plan your next move. Some of your new companions want to stay here and some want to get as far away from Godorno as possible and brave the Great Forest. After an hour of debate, you are no closer to reaching a decision so you all go to bed.\n\nThe net morning, your decision is made for you. Two men in leather armour and with swords burst into the inn whilst you are having breakfast \"Judain scum!\", they shout. \"The only thing you're good for is the reward money for your heads!\" You and your band manage to overcome the men, but blood is drawn. You all decide that to stay here would be too dangerous and so you must head through the Great Forest. You spend the day preparing for your journey as best as you can. The next day, you set out on a new adventure and a new life whilst Godorno chokes on its own hatred. A few months later, you return to where the once proud city stood to find that all that remains of it are the tops of the fortresses and towers piercing the waves.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto customShop = CustomShop();
 
 auto prologue = Prologue();
@@ -4898,6 +5162,16 @@ auto story156 = Story156();
 auto story157 = Story157();
 auto story158 = Story158();
 auto story159 = Story159();
+auto story160 = Story160();
+auto story161 = Story161();
+auto story162 = Story162();
+auto story163 = Story163();
+auto story164 = Story164();
+auto story165 = Story165();
+auto story166 = Story166();
+auto story167 = Story167();
+auto story168 = Story168();
+auto story169 = Story169();
 
 void InitializeStories()
 {
@@ -4918,7 +5192,8 @@ void InitializeStories()
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
         &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
-        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159};
+        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
+        &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169};
 }
 
 #endif

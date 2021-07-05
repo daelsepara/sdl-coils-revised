@@ -26,8 +26,10 @@ namespace Item
         SILVER_MIRROR,
         BOOK_OF_MAPS,
         HERB,
+        BOOK_OF_MYTHS_AND_LEGENDS,
+        HEALING_POTION,
         First = MAGIC_AMULET,
-        Last = HERB
+        Last = HEALING_POTION
     };
 
     class Base
@@ -79,6 +81,8 @@ namespace Item
     auto SILVER_MIRROR = Item::Base("SILVER MIRROR", "SILVER MIRROR", Item::Type::SILVER_MIRROR);
     auto BOOK_OF_MAPS = Item::Base("BOOK OF MAPS", "BOOK OF MAPS", Item::Type::BOOK_OF_MAPS);
     auto HERB = Item::Base("HERB", "HERB", Item::Type::HERB);
+    auto BOOK_OF_MYTHS_AND_LEGENDS = Item::Base("BOOK OF MYTHS AND LEGENDS", "BOOK OF MYTHS AND LEGENDS", Item::Type::BOOK_OF_MYTHS_AND_LEGENDS);
+    auto HEALING_POTION = Item::Base("POTION", "HEALING POTION", Item::Type::HEALING_POTION);
 
     std::vector<Item::Type> UniqueItems = {Item::Type::JEWEL_OF_SUNSET_FIRE, Item::Type::JADE_WARRIORS_SWORD, Item::Type::IVORY_POMEGRANATE};
 
